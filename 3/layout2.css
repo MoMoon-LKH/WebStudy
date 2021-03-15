@@ -1,0 +1,51 @@
+li{
+  list-style: none;
+}
+
+header{
+  background-color: #7777;
+  
+}
+
+#wrap{
+  
+  overflow:auto;
+  margin: 20px 0px;
+}
+
+.left, .right{
+  float:left;
+  height: 300px;
+  
+}
+
+.left{
+  width:17%;
+  background-color: #7878;
+  margin-right: 3%;
+  
+}
+
+.right{
+  background-color: #478C;
+  width: 80%;
+  text-align: center;
+}
+
+.right > h2{
+  position: relative;
+}
+
+
+.right  .emotion{
+  position: absolute;
+  top: 0px;
+  right: 25%;
+  color: #ffff;
+}
+
+
+footer{
+  background-color:#ccc;
+  clear:left;
+}
