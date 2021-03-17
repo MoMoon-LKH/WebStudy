@@ -32,7 +32,7 @@ public class InfoServlet extends HttpServlet {
 
         out.println("</body>");
         out.println("</html>");
-
+        
     }
 
     @Override
