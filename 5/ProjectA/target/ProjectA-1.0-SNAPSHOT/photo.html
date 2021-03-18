@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>내 사진</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: mediumseagreen;
+        }
+        .menubar{
+            background-color: white;
+            height: 50px;
+            margin: 10px;
+            list-style: none;
+        }
+        .content{
+            margin: 10px;
+            background-color: white;
+            overflow: auto;
+        }
+        #imgBlocks{
+            position: static;
+        }
+        .imgBlock{
+            overflow: auto;
+            text-align: left;
+            padding: 60px;
+            margin-left: 300px;
+        }
+        footer{
+            margin:10px;
+            background-color: white;
+        }
+        li{
+            display: inline-block;
+            background-color: mediumseagreen;
+            box-shadow: 4px 4px 3px lightgrey;
+        }
+        .menuItem{
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            margin: 10px;
+            left: 650px;
+            position: relative;
+        }
+        .menuItem > a{
+            color: purple;
+            text-decoration: none;
+            display: block;
+        }
+        img{
+            float: left;
+            width: 260px;
+            height: 260px;
+            margin-right: 30px;
+            border: 10px solid grey;
+        }
+
+        footer{
+            height: 80px;
+            text-align: center;
+            clear: both;
+        }
+        .foot_text{
+            position: relative;
+            top:19px;
+            color: lightgrey;
+        }
+
+    </style>
+</head>
+<body>
+<head class="header">
+    <ul class="menubar">
+        <li class="menuItem"><a href="index.html">홈</a></li>
+        <li class="menuItem"><a href="aboutme.html">자기소개</a></li>
+        <li class="menuItem"><a href="photo.html">내 사진</a></li>
+        <li class="menuItem"><a href ="/aboutme/today">현재 시간</a></li>
+    </ul>
+</head>
+<section class="content">
+    <div id="imgBlocks">
+        <div class="imgBlock">
+            <img src="img/idPhoto1.PNG" />
+                2021.03.18<br>
+                크롬을 통해 Html 개발
+        </div>
+        <hr style="width: 95%">
+        <div class="imgBlock">
+            <img src="img/idPhoto2.jpg" />
+                2021.03.18<br>
+                크롬을 통해 Html 개발
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="foot_text">
+        <div>rlgh28@naver.com</div>
+        <div>https://github.com/MoMoon-LKH</div>
+    </div>
+</footer>
+</body>
+</html>
