@@ -1,0 +1,37 @@
+package role;
+
+public class Role {
+    private Integer roleId;
+    private String description;
+
+
+    public Role(Integer roleId, String description) {
+        this.roleId = roleId;
+        this.description = description;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRole_id(Integer roleId) {
+        this.roleId = roleId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+    @Override
+    public String toString() {
+        return "role.Role{" +
+                "roleId=" + roleId +
+                ", description='" + description + '\'' +
+                '}';
+    }
+}
