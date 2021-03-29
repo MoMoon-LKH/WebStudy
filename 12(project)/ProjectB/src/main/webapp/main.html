@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDoList</title>
+    <style>
+        body{
+            background-color: grey;
+        }
+        .wrap{
+            width: 70%;
+            margin-left: 15%;
+            background-color: white;
+            overflow: auto;
+            clear: both;
+        }
+        .header{
+            margin: 30px;
+            border: black;
+            height: 30%;
+        }
+
+        #title{
+            font-size: 30px;
+            color: cadetblue;
+            font-weight: bold;
+            width: 250px;
+            transform: rotate(-45deg);
+            overflow: auto;
+            margin-top: 30px;
+            padding-right: 150px;
+        }
+        #toDoBtn {
+            float: right;
+            font-size: 18px;
+            color: white;
+            width: 230px;
+            height: 40px;
+            padding-top: 10px;
+            background-color: deepskyblue;
+            text-align: center;
+            overflow: auto;
+        }
+        .content{
+            clear: both;
+            float: right;
+            margin: 10px;
+        }
+        .cell{
+            width: 350px;
+            height: 50px;
+            margin: 30px;
+            padding: 10px;
+            text-align: left;
+        }
+        th{
+            color: white;
+            background-color: darkslategrey;
+            font-size: 23px;
+        }
+    </style>
+</head>
+<body >
+<div class="wrap">
+    <div class="header">
+        <div id="title">나의 해야할 일들</div>
+        <div id="toDoBtn" style="cursor: pointer;" onclick="location.href='toDo.html';">새로운 TODO 등록</div>
+    </div>
+
+    <div class="content">
+       <table style="border-spacing: 15px;">
+           <tr>
+               <th class="cell">TODO</th>
+               <th class="cell">DOING</th>
+               <th class="cell">DONE</th>
+           </tr>
+       </table>
+    </div>
+</div>
+
+</body>
+</html>
