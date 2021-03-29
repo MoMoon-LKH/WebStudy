@@ -7,6 +7,15 @@ public class ToDo {
     private String title;
     private String type;
 
+    public ToDo(Long id, String name, String regData, int sequence, String title, String type) {
+        this.id = id;
+        this.name = name;
+        this.regData = regData;
+        this.sequence = sequence;
+        this.title = title;
+        this.type = type;
+    }
+
     public Long getId() {
         return id;
     }
