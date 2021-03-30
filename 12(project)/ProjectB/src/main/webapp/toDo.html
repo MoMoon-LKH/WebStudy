@@ -57,7 +57,7 @@
 <body>
 <div class="wrap">
     <div id="title">할일 등록</div>
-    <form action="main.jsp" method="get">
+    <form action="/toDoAdd" method="get">
         <div>어떤 일인가요?</div>
         <input style="width: 430px; height: 30px;" type="text" id="work" placeholder="swift 공부하기(24자)까지" maxlength="24" >
         <div>누가 할일 인가요</div>
@@ -68,7 +68,7 @@
         <input type="radio" id="third" name="radio" value="3"><label for="third">3순위</label>
 
         <div style="margin-top: 30px; padding-bottom: 30px ">
-            <span id="before" onclick="location.href='main.html'"; style="cursor: pointer" ><a>< 이전</a></span>
+            <span id="before" onclick="location.href='/main'"; style="cursor: pointer" ><a>< 이전</a></span>
             <span style="display:inline-block; height:40px; padding-right: 30px">
                 <button type="reset">내용지우기</button>
                 <button type="submit">제출</button>

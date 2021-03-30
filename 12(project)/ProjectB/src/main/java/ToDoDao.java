@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ToDoDao {
-    private static String dbUrl = "http://localhost:3306/projectdb";
-    private static String dbUser = "connectuser";
-    private static String dbPw = "connect123";
+    private static final String dbUrl = "http://localhost:3306/projectdb";
+    private static final String dbUser = "connectuser";
+    private static final String dbPw = "connect123";
 
     public int addTodo(ToDo toDo){
         int addCount = 0;
