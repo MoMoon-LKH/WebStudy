@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ToDoDao {
-    private static final String dbUrl = "http://localhost:3306/projectdb";
+    private static final String dbUrl = "jdbc:mysql://localhost:3306/projectdb";
     private static final String dbUser = "connectuser";
     private static final String dbPw = "connect123";
 
@@ -55,7 +55,7 @@ public class ToDoDao {
                 String type = rs.getString("type");
                 String date = rs.getString("regdate");
 
-                ToDo toDo = new ToDo(id,title,name, sq, type, date);
+                ToDo toDo = new ToDo(id,name,date,sq,title,type);
                 list.add(toDo);
             }
         } catch (Exception e) {
