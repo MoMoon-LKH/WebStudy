@@ -1,8 +1,9 @@
+package dto;
 
 public class ToDo {
     private Long id;
     private String name;
-    private String regData;
+    private String regDate;
     private int sequence;
     private String title;
     private String type;
@@ -18,10 +19,10 @@ public class ToDo {
         this.type = type;
     }
 
-    public ToDo(Long id, String name, String regData, int sequence, String title, String type) {
+    public ToDo(Long id, String name, String regDate, int sequence, String title, String type) {
         this.id = id;
         this.name = name;
-        this.regData = regData;
+        this.regDate = regDate;
         this.sequence = sequence;
         this.title = title;
         this.type = type;
@@ -43,12 +44,12 @@ public class ToDo {
         this.name = name;
     }
 
-    public String getRegData() {
-        return regData;
+    public String getRegDate() {
+        return regDate;
     }
 
-    public void setRegData(String regData) {
-        this.regData = regData;
+    public void setRegDate(String regData) {
+        this.regDate = regDate;
     }
 
     public int getSequence() {
@@ -77,10 +78,10 @@ public class ToDo {
 
     @Override
     public String toString() {
-        return "ToDo{" +
+        return "dto.ToDo{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", regData='" + regData + '\'' +
+                ", regDate='" + regDate + '\'' +
                 ", sequence=" + sequence +
                 ", title='" + title + '\'' +
                 ", type='" + type + '\'' +

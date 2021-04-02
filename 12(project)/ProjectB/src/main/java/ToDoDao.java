@@ -1,8 +1,12 @@
+import dto.ToDo;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class ToDoDao {
@@ -36,7 +40,7 @@ public class ToDoDao {
 
     public List<ToDo> getTodos(){
         List<ToDo> list = new ArrayList<>();
-        String sql = "select * from todo";
+        String sql = "select id, title, name, sequence, type, regdate from todo";
         Connection con  = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -54,6 +58,9 @@ public class ToDoDao {
                 int sq = rs.getInt("sequence");
                 String type = rs.getString("type");
                 String date = rs.getString("regdate");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                Date convertedDate = sdf.parse(date);
+                date = sdf.format(convertedDate);
 
                 ToDo toDo = new ToDo(id,name,date,sq,title,type);
                 list.add(toDo);

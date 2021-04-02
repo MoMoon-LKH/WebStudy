@@ -1,3 +1,6 @@
+import dto.ToDo;
+import org.codehaus.jackson.map.ObjectMapper;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -11,20 +14,17 @@ public class TodoTypeServlet extends HttpServlet {
         response.setContentType("application/json");
         ToDoDao toDoDao = new ToDoDao();
 
-        Long id = Long.getLong(request.getParameter("id"));
+        String coventid = request.getParameter("id");
         String type = request.getParameter("type");
+        System.out.println("id = " + coventid + " type " + type);
+        Long id = Long.parseLong(coventid);
 
         ToDo toDo = new ToDo(id, type);
 
         int updateCount = toDoDao.updateTodo(toDo);
         log("updateCount = " + updateCount);
 
-        List<ToDo> list = toDoDao.getTodos();
-
-        request.setAttribute("list",list);
-
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("/main.jsp");
-        requestDispatcher.forward(request, response);
+        response.sendRedirect("/main");
     }
 
     @Override

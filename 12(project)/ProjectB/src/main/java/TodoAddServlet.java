@@ -1,3 +1,6 @@
+import dto.ToDo;
+import org.codehaus.jackson.map.ObjectMapper;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -22,7 +25,10 @@ public class TodoAddServlet extends HttpServlet {
 
         List<ToDo> list = toDoDao.getTodos();
 
-        request.setAttribute("list",list);
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonList = objectMapper.writeValueAsString(list);
+
+        request.setAttribute("list",jsonList);
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/main.jsp");
         requestDispatcher.forward(request, response);
