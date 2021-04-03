@@ -123,20 +123,9 @@
             </tr>
             </thead>
             <tbody>
-            <%-- <tr>
-                    <td class="cell" style="display: none">
-                        <div class="id" style="display: none">123</div>
-                        <div class="obTitle">asdf</div>
-                        <div class="type" style="display: none">TODO</div>
-                        <div class="todoContent">
-                            <span>등록날짜:</span><span class="date">2016.02.10.</span><span> </span>
-                            <span class="name">홍길동</span><span> </span><span>우선순위 </span><span class="sequence">1</span><span>   </span>
-                            <button class="toDoConBtn" onclick="update()" style="margin-left: 30px">-></button>
-                        </div>
-                    </td>
-                </tr>--%>
-        </tbody>
-    </table>
+
+            </tbody>
+         </table>
         <table id="table2" style="border-spacing: 10px;">
             <thead>
                 <tr>
@@ -144,18 +133,6 @@
                 </tr>
             </thead>
             <tbody>
-                <%--<tr>
-                    <td class="cell" style="display: none">
-                        <div class="id" style="display: none">123</div>
-                        <div class="obTitle">asdf</div>
-                        <div class="type" style="display: none">TODO</div>
-                        <div class="todoContent">
-                            <span>등록날짜:</span><span class="date">2016.02.10.</span><span> </span>
-                            <span class="name">홍길동</span><span> </span><span>우선순위 </span><span class="sequence">1</span><span>   </span>
-                            <button class="toDoConBtn" onclick="update()" style="margin-left: 30px">-></button>
-                        </div>
-                    </td>
-                </tr>--%>
 
             </tbody>
         </table>
@@ -167,35 +144,19 @@
                 </tr>
             </thead>
             <tbody>
-                <%--<tr>
-                    <td class="cell" style="display: none">
-                        <div clss="id" style="display: none">123</div>
-                        <div class="obTitle">asdf</div>
-                        <div class="type" style="display: none">TODO</div>
-                        <div class="todoContent">
-                            <span>등록날짜:</span><span class="date">2016.02.10.</span><span> </span>
-                            <span class="name">홍길동</span><span> </span><span>우선순위 </span><span class="sequence">1</span><span>   </span>
-                            <button class="toDoConBtn" onclick="update()" style="margin-left: 30px">-></button>
-                        </div>
-                    </td>
-                </tr>--%>
 
-                </tbody>
-
-            </table>
-
+            </tbody>
+        </table>
     </div>
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
-    var list = <%=list%>
-    var table = document.getElementById('table');
-    var table2 = document.getElementById('table2');
-    var table3 = document.getElementById('table3');
-    getList();
+    var initialList = <%=list%>
+    getList(initialList);
 
-    $(".toDoConBtn").click(function(){
+
+    $(document).on('click','.toDoConBtn',function(){
         var currentRow = $(this).closest("tr").find("td");
         var id = currentRow.find(".id").text();
         var type = currentRow.find(".type").text();
@@ -205,8 +166,7 @@
         } else if (type === "DOING") {
             type = "DONE";
         }
-        updateAjax2(id, type);
-
+        updateAjax(id, type);
     })
 
     function update(){
@@ -221,46 +181,46 @@
         updateAjax(id, type);
     }
 
-/*    function updateAjax(id, type){
-        var oReq = new XMLHttpRequest();
-        oReq.addEventListener("load", function () {
-            var table = document.getElementById('table');
-            var table2 = document.getElementById('table2');
-            var table3 = document.getElementById('table3');
-            emptyTable(table);
-            emptyTable(table2);
-            emptyTable(table3);
-            getList()
-        });
-        console.log(id , type);
-        oReq.open("GET", "/typeUpdate/getData?id=id&type=type");
-        oReq.send();
-    }*/
-
-    function updateAjax2(id, type) {
+    function updateAjax(id, type) {
         $.ajax({
             url: "/typeUpdate",
             type: "GET",
             data_type:'json',
+            cache: false,
             data: {
                 "id": id,
                 "type": type
             },
             success: function (data) {
                 emptyTable();
-                getList();
+                var obj = JSON.parse(data);
+                console.log("obj = " + obj );
+                for (var i = 0; i < obj.length; i++) {
+                    console.log(obj[i].id + " " + obj[i].title);
+                }
+                getList(obj);
+
+            },
+            error: function () {
+                alert("업데이트 에러 발생");
             }
         });
     }
 
 
-    function getList(){
-       for (i = 0; i < list.length; i++) {
+    function getList(list){
+        var table = document.getElementById('table');
+        var table2 = document.getElementById('table2');
+        var table3 = document.getElementById('table3');
+        console.log(list.length);
+       for (var i = 0; i < list.length; i++) {
+           console.log(list[i]);
            var todo = list[i];
 
            if (todo.type === "TODO") {
                var row = addCell(list[i]);
                table.innerHTML += row;
+
            } else if (todo.type === "DOING") {
                var row = addCell(list[i]);
                table2.innerHTML += row;
@@ -279,16 +239,22 @@
         tag += '<div class="todoContent">';
         tag += '<span>등록날짜:</span><span class="date">' + obj.regDate + '</span><span> </span>';
         tag += '<span class="name">' + obj.name + '</span><span> </span><span>우선순위: </span><span class="sequence">' + obj.sequence + '</span><span>   </span>';
-        tag += '<button class="toDoConBtn" style="margin-left: 30px">-></button>';
+        if(obj.type !== "DONE") {
+            tag += '<button class="toDoConBtn" style="margin-left: 30px">-></button>';
+        }
         tag += '</div></td></tr>';
         return tag;
     }
 
     function emptyTable() {
-        $('#table > tbody').empty();
-        $('#table2 > tbody').empty();
-        $('#table3 > tbody').empty();
+        $('table>tbody').empty();
+        $('table2>tbody').empty();
+        $('table3>tbody').empty();
     }
-
+    function deleteR(tables) {
+        for (i = 1; i <= tables.rows.length; i++) {
+            tables.deleteRow(tables.rows.length -1);
+        }
+    }
 </script>
 </html>

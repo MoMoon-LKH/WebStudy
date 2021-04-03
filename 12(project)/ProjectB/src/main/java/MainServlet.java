@@ -21,11 +21,12 @@ public class MainServlet extends HttpServlet {
 
             request.setAttribute("list", jsonList);
 
-            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/main.jsp");
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("main.jsp");
             requestDispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 
     @Override

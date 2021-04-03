@@ -5,14 +5,16 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "TodoTypeServlet", value = "/typeUpdate")
 public class TodoTypeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("application/json");
+        response.setCharacterEncoding("utf-8");
         ToDoDao toDoDao = new ToDoDao();
+        PrintWriter out = response.getWriter();
 
         String coventid = request.getParameter("id");
         String type = request.getParameter("type");
@@ -22,9 +24,14 @@ public class TodoTypeServlet extends HttpServlet {
         ToDo toDo = new ToDo(id, type);
 
         int updateCount = toDoDao.updateTodo(toDo);
+        List<ToDo> list = toDoDao.getTodos();
+
         log("updateCount = " + updateCount);
 
-        response.sendRedirect("/main");
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonList = objectMapper.writeValueAsString(list);
+
+        out.print(jsonList);
     }
 
     @Override
