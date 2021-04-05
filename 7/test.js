@@ -8,7 +8,7 @@
 // });
 
 //Ajax 실행 코드
-function reqListener(){
+   function reqListener(){
     console.log(this.reponseText);
 }
 
