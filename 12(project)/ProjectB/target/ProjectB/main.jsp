@@ -186,6 +186,7 @@
             url: "/typeUpdate",
             type: "GET",
             data_type:'json',
+            contentType:'application/x-www-form-urlencoded; charset=UTF-8',
             cache: false,
             data: {
                 "id": id,

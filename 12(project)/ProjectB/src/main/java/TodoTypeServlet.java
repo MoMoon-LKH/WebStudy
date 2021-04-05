@@ -12,6 +12,7 @@ import java.util.List;
 public class TodoTypeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         ToDoDao toDoDao = new ToDoDao();
         PrintWriter out = response.getWriter();
@@ -32,6 +33,8 @@ public class TodoTypeServlet extends HttpServlet {
         String jsonList = objectMapper.writeValueAsString(list);
 
         out.print(jsonList);
+        out.close();
+
     }
 
     @Override

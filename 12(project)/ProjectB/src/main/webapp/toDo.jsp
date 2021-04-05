@@ -5,7 +5,7 @@
   Time: 오후 1:13
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
     <title>Title</title>
@@ -69,7 +69,7 @@
 <body>
 <div class="wrap">
     <div id="title">할일 등록</div>
-    <form action="/toDoAdd" method="get">
+    <form action="/toDoAdd" method="post">
         <div>어떤 일인가요?</div>
         <input style="width: 430px; height: 30px;" type="text" id="work"  name="title" placeholder="swift 공부하기(24자)까지" maxlength="24" >
         <div>누가 할일 인가요</div>
