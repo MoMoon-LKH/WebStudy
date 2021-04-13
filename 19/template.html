@@ -1,0 +1,39 @@
+<html>
+<head>
+    <style>
+     .content > li {
+        border:1px solid grey; 
+        list-style: none;
+     }
+    </style>
+
+</head>
+<body>
+    <ul class="content"></ul>
+</body>
+<script id="template-list-item" type="text/template">
+    <li>
+        <h4>{title}</h4><p>{content}</p><div>{price}</div>     
+    </li>
+</script>
+<!--위에 자바스크립트는 타입을 바꾸므로서 인식을 안함-->
+
+<script>
+    var data = [
+        {title : "hello",content : "lorem dkfief",price : 2000},
+        {title : "bye",content : "lorem dkfief",price : 2000}
+    ];
+    
+    var html = document.querySelector("#template-list-item").innerHTML;
+    console.log(html);
+    var  result = "";    
+    for(var i in data){
+     result += html.replace("{title}" , data[i].title)
+         .replace("{content}", data[i].content)
+         .replace("{price}", data[i].price);
+    }
+    document.querySelector(".content").innerHTML = result;
+
+    
+</script>
+</html>
