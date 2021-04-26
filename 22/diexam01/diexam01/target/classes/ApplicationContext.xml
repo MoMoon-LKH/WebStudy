@@ -4,5 +4,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="userBean" class="kr.or.connect.UserBean"></bean>
+    <bean id="e" class="kr.or.connect.Engine"></bean>
+    <bean id="c" class="kr.or.connect.Car">
+        <property name="engine" ref="e"></property>
+    </bean>
 
 </beans>
