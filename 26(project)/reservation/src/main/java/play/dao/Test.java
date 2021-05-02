@@ -13,7 +13,7 @@ public class Test {
 
         ProductDao pd = ac.getBean(ProductDao.class);
 
-        List<Item> list = pd.products(0, 4);
+        List<Item> list = pd.products(3,0, 4);
 
         for (Item item : list) {
             System.out.println("item = " + item);

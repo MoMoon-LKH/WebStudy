@@ -28,11 +28,19 @@ public class ProductDao {
                 .usingGeneratedKeyColumns("id");
     }
 
-    public List<Item> products(Integer start, Integer limit) {
+    public List<Item> products(Integer tabNum, Integer start, Integer limit) {
         Map<String, Integer> params = new HashMap<>();
-        params.put("start", start);
-        params.put("limit", limit);
-        return jdbc.query(SELECT_PRODUCTS, params, rowMapper);
+        if (tabNum > 0) {
+            params.put("id", tabNum);
+            params.put("start", start);
+            params.put("limit", limit);
+            return jdbc.query(SELECT_CATEGORY_PRODUCTS, params, rowMapper);
+        } else {
+            params.put("start", start);
+            params.put("limit", limit);
+            return jdbc.query(SELECT_PRODUCTS, params, rowMapper);
 
+        }
     }
+
 }

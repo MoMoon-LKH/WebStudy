@@ -24,15 +24,11 @@ public class MvcContextConfiguration extends WebMvcConfigurerAdapter {
 
     }
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
-    }
 
     @Bean
     public InternalResourceViewResolver getInternalResourceViewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setPrefix("/WEB-INF/api/");
         resolver.setSuffix(".jsp");
         return resolver;
     }
