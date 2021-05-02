@@ -6,5 +6,5 @@ public class ProductDaoSqls {
             "join display_info on product.id = display_info.product_id " +
             "join product_image on product.id = product_image.product_id and product_image.type = 'th' " +
             "join file_info on product_image.file_id = file_info.id " +
-            "order by product.id desc limit :start, :limit";
+            "order by product.id limit :start, :limit";
 }
