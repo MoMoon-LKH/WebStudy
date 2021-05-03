@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: MoMoon
@@ -6,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="kr">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +18,7 @@
 <div class="container">
     <div class="header">
         <h2 class="logo">
-            <a class="head_img" href="products.jsp"><img class="head_img" src="../../img/spr_title.png"/> </a>
+            <a class="head_img" href="products"><img class="head_img" src="../../img/spr_title.png"/> </a>
             <a class="head_my" href=""><span class="myInfo">예약 확인</span></a>
         </h2>
     </div>
@@ -48,11 +49,27 @@
         <div class="listNumContainer">
             <div class="listNum">바로 예매 가능한 행사가 <span class="list_count">${count} 개</span> 있습니다.</div>
         </div>
-        <div class="list">
-            <ul class="list_items">
-
+        <div class="list" style=" width: 99%; background-color: #e9ecef; margin-left: 0.5%">
+            <ul id="list_items" style=" list-style: none; padding: 0;">
+                <c:forEach items="${list}" var="item">
+                   <li class="item" style="width: 50%; float: left">
+                       <a href="products" style="text-decoration: none;">
+                        <div class="item_container">
+                            <img alt=item.description src="../../img/${item.fileName}" style="width: 200px; margin: 0 auto; padding: 0; display: block">
+                           <div class="item_text" style="width: 190px; text-align: left; background: white; height: 150px; margin: 0 auto; padding: 0px;">
+                                <h4 class="item_text_des" style=" font-size: 15px; ">
+                                    <div style="font-weight: bold">${item.description}</div>
+                                    <small>${item.placeName}</small>
+                                </h4>
+                               <p style="background: white; font-size: 13px; ">${item.content}</p>
+                           </div>
+                        </div>
+                       </a>
+                   </li>
+                </c:forEach>
             </ul>
         </div>
+        <div style="margin: 0; padding: 0; display: block; clear: both;"></div>
         <div class="more">
             <button class="btn"><span>더보기</span></button>
         </div>
@@ -69,6 +86,6 @@
         </div>
     </footer>
 </div>
+<script src="http://localhost:8080/js/main.js"></script>
 </body>
-<script type="text/javascript" src="../js/main.js"></script>
 </html>

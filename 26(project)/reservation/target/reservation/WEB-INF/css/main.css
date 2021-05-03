@@ -9,7 +9,6 @@
 @font-face {
     font-family: naver;
     src: url("../../font/Naver-booking-Icons.woff") format("truetype");
-
 }
 
 body{
@@ -23,6 +22,9 @@ body{
     min-height: 100%;
     min-height: 100vh;
 }
+
+
+
 .container{
     background-color: #e9ecef;
     padding-top: 50px;
@@ -122,6 +124,9 @@ button{
 
 .listNum > .list_count {
     color: red;
+}
+.list_items > .item {
+
 }
 
 .more{

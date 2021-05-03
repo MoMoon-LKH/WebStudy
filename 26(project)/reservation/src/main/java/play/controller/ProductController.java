@@ -16,6 +16,7 @@ import java.util.Map;
 @Controller
 @RequestMapping(path = "/products")
 public class ProductController {
+
     @Autowired
     ViewService viewService;
 
