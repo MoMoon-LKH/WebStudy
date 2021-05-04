@@ -21,6 +21,8 @@ body{
     max-width: 414px;
     min-height: 100%;
     min-height: 100vh;
+    word-wrap: break-word;
+    word-break: break-word;
 }
 
 
@@ -39,6 +41,7 @@ body{
     max-width: 414px;
     height: 65px;
     top: 0;
+    z-index: 999;
 }
 .head_img{
     border: 0px;
@@ -130,11 +133,12 @@ button{
 }
 
 .more{
-    width: 98%;
+    width: 95%;
     height: 35px;
     margin: 0 auto;
     padding: 0;
     background-color: white;
+
 }
 
 .btn{
@@ -142,6 +146,7 @@ button{
     height: 100%;
     font-size: 16px;
     background-color: white;
+
 }
 
 .gototop{

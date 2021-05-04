@@ -13,6 +13,13 @@
     <meta charset="UTF-8">
     <title>네이버 예약</title>
     <link href="../css/main.css" rel="stylesheet">
+    <style>
+
+        li{
+            margin-top: 6px;
+        }
+
+    </style>
 </head>
 <body>
 <div class="container">
@@ -49,35 +56,58 @@
         <div class="listNumContainer">
             <div class="listNum">바로 예매 가능한 행사가 <span class="list_count">${count} 개</span> 있습니다.</div>
         </div>
-        <div class="list" style=" width: 99%; background-color: #e9ecef; margin-left: 0.5%">
-            <ul id="list_items" style=" list-style: none; padding: 0;">
-                <c:forEach items="${list}" var="item">
-                   <li class="item" style="width: 50%; float: left">
-                       <a href="products" style="text-decoration: none;">
+        <div class="list" style=" width: 99%; background-color: #e9ecef; margin-left: 0.5%; display: block; margin-bottom: 15px">
+            <ul id="list_items" style=" list-style: none;  width:50%; margin: 0; padding: 0; float: left">
+            <c:forEach items="${list}" var="item" begin="0" end="3" step="2">
+                   <li class="item" style="width: 100%; display: inline-block; float: left; overflow: hidden">
+                       <a href="products" style="text-decoration: none; display: block">
                         <div class="item_container">
-                            <img alt=item.description src="../../img/${item.fileName}" style="width: 200px; margin: 0 auto; padding: 0; display: block">
-                           <div class="item_text" style="width: 190px; text-align: left; background: white; height: 150px; margin: 0 auto; padding: 0px;">
-                                <h4 class="item_text_des" style=" font-size: 15px; ">
-                                    <div style="font-weight: bold">${item.description}</div>
-                                    <small>${item.placeName}</small>
+                            <img alt=item.description src="../../img/${item.fileName}" style="width: 200px; margin: 0 auto; padding: 0; opacity: 1">
+                           <div class="item_text" style="width: 200px; text-align: left; background: white;  margin: -3px 3px; padding: 0px;">
+                                <h4 class="item_text_des" style=" margin: 0px; padding: 0; color: black; ">
+                                    <div style="font-weight: bold; font-size: 14px; padding: 10px 0 3px 5px">${item.description}</div>
+                                    <small style="font-weight: normal; word-break: break-all;  font-size: 12px; padding: 0 0 3px 5px">${item.placeName}</small>
                                 </h4>
-                               <p style="background: white; font-size: 13px; ">${item.content}</p>
+                               <hr width="80%" color="lightgray" size="1">
+                               <p style=" margin: 5px; padding: 0; font-size: 12px;
+                                    color: grey;  display: -webkit-box; word-wrap: break-word; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">${item.content}</p>
                            </div>
                         </div>
                        </a>
                    </li>
-                </c:forEach>
+            </c:forEach>
             </ul>
+            <ul id="list_items2" style=" list-style: none; width:50%; margin: 0; padding: 0; float: left">
+            <c:forEach items="${list}" var="item" begin="1" end="3" step="2">
+                <li class="item" style="width: 100%;  float: left; overflow: hidden;">
+                        <a href="products" style="text-decoration: none; display: block">
+                            <div class="item_container">
+                                <img alt=item.description src="../../img/${item.fileName}" style="width: 200px; margin: 0 auto; padding: 0; opacity: 1">
+                                <div class="item_text" style="width: 200px; text-align: left; background: white; margin: -3px 3px; padding: 0px;">
+                                    <h4 class="item_text_des" style="margin: 0; padding: 0; color: black; ">
+                                        <div style="font-weight: bold; font-size: 14px; padding: 10px 0 3px 5px">${item.description}</div>
+                                        <small style="font-weight: normal; word-break: break-all; font-size: 12px; padding: 0 0 3px 5px">${item.placeName}</small>
+                                    </h4>
+                                    <hr width="80%" color="lightgray" size="1">
+                                    <p style="margin: 5px; font-size: 12px; color: grey; display: -webkit-box;
+                                    word-wrap: break-word; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">${item.content}</p>
+                                </div>
+                            </div>
+                        </a>
+                </li>
+            </c:forEach>
+            </ul>
+            <div style="margin: 0; padding: 0; display: block; clear: both;"></div>
         </div>
-        <div style="margin: 0; padding: 0; display: block; clear: both;"></div>
-        <div class="more">
+
+        <div class="more" style="border: 1px solid lightgray;">
             <button class="btn"><span>더보기</span></button>
         </div>
     </div>
 
 
     <footer class="footer">
-        <div class="gototop">
+        <div class="gototop" >
             <a href="#" class="lnk_top"><span class="lnk_top_text">&uarr;TOP</span></a>
         </div>
         <div class="footer_copy">
@@ -86,6 +116,6 @@
         </div>
     </footer>
 </div>
-<script src="http://localhost:8080/js/main.js"></script>
+<script src="../js/main.js"></script>
 </body>
 </html>
