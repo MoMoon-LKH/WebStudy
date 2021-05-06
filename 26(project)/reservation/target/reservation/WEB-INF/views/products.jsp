@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="category">
-        <ul class="tabList">
+        <ul id="tabList" class="tabList">
             <li class="item" data-category="0">전체리스트</li>
             <li class="item" data-category="1">전시</li>
             <li class="item" data-category="2">뮤지컬</li>

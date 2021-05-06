@@ -19,9 +19,9 @@ public class ProductController {
     ViewService viewService;
 
     @GetMapping
-    public Map<String, Object> getProducts(@RequestParam(name = "tabNum" , required = true, defaultValue = "0") int tabNum
+    public Map<String, Object> getProducts(@RequestParam(name = "category" , required = true, defaultValue = "0") int category
             , @RequestParam(name = "start" , required=false, defaultValue = "0") int start){
-        List<Item> list = viewService.getProducts(tabNum, start);
+        List<Item> list = viewService.getProducts(category, start);
         int count = viewService.getCount();
 
         Map<String, Object> map = new HashMap<>();

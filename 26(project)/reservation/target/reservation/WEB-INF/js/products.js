@@ -1,12 +1,32 @@
 var start = 0;
+var category = 0;
 var btn = document.querySelector("#btn");
+var tab = document.querySelector("#tabList");
+
+
+$(document).ready(function () {
+    var items = ajax("/products");
+    addList(items);
+});
 
 btn.addEventListener("click", function () {
-    console.log("btn 작동 확인");
     var items = ajax("/products");
-
-    console.log(items);
     addList(items);
+});
+
+tab.addEventListener("click", function (evt){
+    var tabItem = $(evt.target).data("category");
+    if (tabItem >= 0) {
+
+        category = tabItem;
+        start = 0;
+        $("#list_items").empty();
+        $("#list_items2").empty();
+        var items = ajax("/products");
+        addList(items);
+        $(".more").show();
+    }
+
 });
 
 
@@ -15,7 +35,7 @@ function ajax(url){
     $.ajax({
         type: 'GET',
         url: url,
-        data: {'start': start},
+        data: {'start': start, "category": category},
         async: false,
         success: function (data){
             items = data.list;
@@ -49,16 +69,22 @@ function addItem(item, list){
 }
 
 function addList(items){
-    for(var i = 0; i < items.length; i+=2){
-        addItem(items[i],1);
+    console.log(items.length);
+
+    if(items.length > 0){
+        for(var i = 0; i < items.length; i+=2){
+            addItem(items[i],1);
+        }
+        for(var i = 1; i < items.length; i+=2){
+            addItem(items[i],2);
+        }
     }
-    for(var i = 1; i < items.length; i+=2){
-        addItem(items[i],2);
-    }
-    start = items[items.length - 1].id + 1;
-    console.log("start = " + start);
 
     if(items.length < 4){
-        btn.style.display = 'none';
+        $(".more").hide();
     }
+    start += 4;
+
+
+
 }
