@@ -20,12 +20,13 @@
         }
 
     </style>
+
 </head>
 <body>
 <div class="container">
     <div class="header">
         <h2 class="logo">
-            <a class="head_img" href="products"><img class="head_img" src="../../img/spr_title.png"/> </a>
+            <a class="head_img" href="/products"><img class="head_img" src="../../img/spr_title.png"/> </a>
             <a class="head_my" href=""><span class="myInfo">예약 확인</span></a>
         </h2>
     </div>
@@ -58,27 +59,27 @@
         </div>
         <div class="list" style=" width: 99%; background-color: #e9ecef; margin-left: 0.5%; display: block; margin-bottom: 15px">
             <ul id="list_items" style=" list-style: none;  width:50%; margin: 0; padding: 0; float: left">
-            <c:forEach items="${list}" var="item" begin="0" end="3" step="2">
-                   <li class="item" style="width: 100%; display: inline-block; float: left; overflow: hidden">
-                       <a href="products" style="text-decoration: none; display: block">
-                        <div class="item_container">
-                            <img alt=item.description src="../../img/${item.fileName}" style="width: 200px; margin: 0 auto; padding: 0; opacity: 1">
-                           <div class="item_text" style="width: 200px; text-align: left; background: white;  margin: -3px 3px; padding: 0px;">
-                                <h4 class="item_text_des" style=" margin: 0px; padding: 0; color: black; ">
-                                    <div style="font-weight: bold; font-size: 14px; padding: 10px 0 3px 5px">${item.description}</div>
-                                    <small style="font-weight: normal; word-break: break-all;  font-size: 12px; padding: 0 0 3px 5px">${item.placeName}</small>
-                                </h4>
-                               <hr width="80%" color="lightgray" size="1">
-                               <p style=" margin: 5px; padding: 0; font-size: 12px;
+              <%--  <c:forEach items="${list}" var="item" begin="0" end="3" step="2">
+                    <li class="item" style="width: 100%; display: inline-block; float: left; overflow: hidden">
+                        <a href="products" style="text-decoration: none; display: block">
+                            <div class="item_container">
+                                <img alt=item.description src="../../img/${item.fileName}" style="width: 200px; margin: 0 auto; padding: 0; opacity: 1">
+                                <div class="item_text" style="width: 200px; text-align: left; background: white;  margin: -3px 3px; padding: 0px;">
+                                    <h4 class="item_text_des" style=" margin: 0px; padding: 0; color: black; ">
+                                        <div style="font-weight: bold; font-size: 14px; padding: 10px 0 3px 5px">${item.description}</div>
+                                        <small style="font-weight: normal; word-break: break-all;  font-size: 12px; padding: 0 0 3px 5px">${item.placeName}</small>
+                                    </h4>
+                                    <hr width="80%" color="lightgray" size="1">
+                                    <p style=" margin: 5px; padding: 0; font-size: 12px;
                                     color: grey;  display: -webkit-box; word-wrap: break-word; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">${item.content}</p>
-                           </div>
-                        </div>
-                       </a>
-                   </li>
-            </c:forEach>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                </c:forEach>--%>
             </ul>
             <ul id="list_items2" style=" list-style: none; width:50%; margin: 0; padding: 0; float: left">
-            <c:forEach items="${list}" var="item" begin="1" end="3" step="2">
+           <%-- <c:forEach items="${list}" var="item" begin="1" end="3" step="2">
                 <li class="item" style="width: 100%;  float: left; overflow: hidden;">
                         <a href="products" style="text-decoration: none; display: block">
                             <div class="item_container">
@@ -95,14 +96,14 @@
                             </div>
                         </a>
                 </li>
-            </c:forEach>
+            </c:forEach>--%>
             </ul>
-            <div style="margin: 0; padding: 0; display: block; clear: both;"></div>
-        </div>
 
-        <div class="more" style="border: 1px solid lightgray;">
-            <button class="btn"><span>더보기</span></button>
         </div>
+    </div>
+    <div style="margin: 0; padding: 0; display: block; clear: both;"></div>
+    <div  class="more" style="border: 1px solid lightgray;">
+        <button id="btn" class="btn"><span>더보기</span></button>
     </div>
 
 
@@ -116,6 +117,27 @@
         </div>
     </footer>
 </div>
-<script src="../js/main.js"></script>
+
+<template id="template-list-item">
+    <li class="item" style="width: 100%; display: inline-block; float: left; overflow: hidden">
+        <a href="" style="text-decoration: none; display: block">
+            <div class="item_container">
+                <img alt=item.description src= {fileName} style="width: 200px; margin: 0 auto; padding: 0; opacity: 1">
+                <div class="item_text" style="width: 200px; text-align: left; background: white;  margin: -3px 3px; padding: 0;">
+                    <h4 class="item_text_des" style=" margin: 0; padding: 0; color: black; ">
+                        <div style="font-weight: bold; font-size: 14px; padding: 10px 0 3px 5px">{description}</div>
+                        <small style="font-weight: normal; word-break: break-all;  font-size: 12px; padding: 0 0 3px 5px">{placeName}</small>
+                    </h4>
+                    <hr width="80%" color="lightgray" size="1">
+                    <p style=" margin: 5px; padding: 0; font-size: 12px;
+                                    color: grey;  display: -webkit-box; word-wrap: break-word; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{content}</p>
+                </div>
+            </div>
+        </a>
+    </li>
+</template>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js/products.js"></script>
 </body>
 </html>

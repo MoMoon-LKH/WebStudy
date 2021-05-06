@@ -1,0 +1,64 @@
+var start = 0;
+var btn = document.querySelector("#btn");
+
+btn.addEventListener("click", function () {
+    console.log("btn 작동 확인");
+    var items = ajax("/products");
+
+    console.log(items);
+    addList(items);
+});
+
+
+function ajax(url){
+    var items;
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: {'start': start},
+        async: false,
+        success: function (data){
+            items = data.list;
+        },
+        error: function (er){
+            console.log(er);
+        }
+    });
+    return items;
+}
+
+
+function addItem(item, list){
+    var tem = '<li className="item" style="width: 100%; display: inline-block; float: left; overflow: hidden">';
+        tem += '<a href="" style="text-decoration: none; display: block">';
+        tem += '<div className="item_container">';
+        tem += '<img alt=item.description src="../../img/'+ item.fileName + '"  style="width: 200px; margin: 0 auto; padding: 0; opacity: 1">';
+        tem += '<div className="item_text" style="width: 200px; text-align: left; background: white;  margin: -3px 3px; padding: 0;">';
+        tem += '<h4 className="item_text_des" style=" margin: 0; padding: 0; color: black; ">';
+        tem += '<div style="font-weight: bold; font-size: 14px; padding: 10px 0 3px 5px">'+ item.description + '</div>';
+        tem += '<small style="font-weight: normal; word-break: break-all;  font-size: 12px; padding: 0 0 3px 5px">' + item.placeName + '</small>';
+        tem += '</h4><hr width="80%" color="lightgray" size="1">';
+        tem +=  '<p style=" margin: 5px; padding: 0; font-size: 12px; color: grey;  display: -webkit-box; word-wrap: break-word; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden"> '+ item.content + '</p>';
+        tem += '</div></div></a></li>';
+
+    if(list === 1){
+        $("#list_items").append(tem);
+    } else if (list === 2) {
+        $("#list_items2").append(tem);
+    }
+}
+
+function addList(items){
+    for(var i = 0; i < items.length; i+=2){
+        addItem(items[i],1);
+    }
+    for(var i = 1; i < items.length; i+=2){
+        addItem(items[i],2);
+    }
+    start = items[items.length - 1].id + 1;
+    console.log("start = " + start);
+
+    if(items.length < 4){
+        btn.style.display = 'none';
+    }
+}

@@ -28,7 +28,7 @@ public class MvcContextConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(final ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("products");
+        registry.addViewController("/").setViewName("/products");
     }
 
 
