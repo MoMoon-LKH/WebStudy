@@ -6,12 +6,10 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import play.dto.Item;
-import play.dto.Product;
 
 import javax.sql.DataSource;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 import static play.dao.ProductDaoSqls.*;
 
 @Repository
@@ -41,6 +39,12 @@ public class ProductDao {
             return jdbc.query(SELECT_PRODUCTS, params, rowMapper);
 
         }
+
+
+    }
+
+    public List<Integer> productCount() {
+        return jdbc.queryForList(COUNT, Collections.emptyMap(), Integer.class);
     }
 
 }

@@ -13,12 +13,19 @@ public class Test {
 
         ProductDao pd = ac.getBean(ProductDao.class);
 
-        List<Item> list = pd.products(0,31, 4);
-
-        for (Item item : list) {
-            System.out.println("item = " + item);
-            System.out.println("==============================");
-
+        List<Integer> list = pd.productCount();
+        int count = 0;
+        int tabNum = 0;
+        if(tabNum > 0 ){
+            count = list.get(tabNum - 1);
+        } else{
+            for (int i = 0; i < list.size(); i++) {
+                count += list.get(i);
+            }
         }
+        System.out.println("count = " + count);
+        /*List<Item> list = pd.products(5,0, 4);
+        System.out.println("list = " + list);
+*/
     }
 }

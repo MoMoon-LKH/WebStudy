@@ -14,4 +14,6 @@ public class ProductDaoSqls {
             "join product_image on product.id = product_image.product_id and product_image.type = 'th' " +
             "join file_info on product_image.file_id = file_info.id " +
             "where category_id = :id order by product.id limit :start, :limit";
+
+    public static final String COUNT = "select count(*) from product group by category_id";
 }

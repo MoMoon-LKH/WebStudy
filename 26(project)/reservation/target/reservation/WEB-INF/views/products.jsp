@@ -55,7 +55,7 @@
     </div>
     <div class="list_container">
         <div class="listNumContainer">
-            <div class="listNum">바로 예매 가능한 행사가 <span class="list_count">${count} 개</span> 있습니다.</div>
+            <div class="listNum">바로 예매 가능한 행사가 <span class="list_count">0 개</span> 있습니다.</div>
         </div>
         <div class="list" style=" width: 99%; background-color: #e9ecef; margin-left: 0.5%; display: block; margin-bottom: 15px">
             <ul id="list_items" style=" list-style: none;  width:50%; margin: 0; padding: 0; float: left">

@@ -26,8 +26,17 @@ public class ViewServiceImpl implements ViewService {
 
     @Override
     @Transactional
-    public int getCount() {
-        return 0;
+    public int getCount(Integer tabNum) {
+        int count = 0;
+        List<Integer> countList = productDao.productCount();
+        if(tabNum > 0){
+            count = countList.get(tabNum - 1);
+        } else{
+            for (int i = 0; i < countList.size(); i++) {
+                count += countList.get(i);
+            }
+        }
+        return count;
     }
 }
 

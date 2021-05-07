@@ -6,24 +6,31 @@ var tab = document.querySelector("#tabList");
 
 $(document).ready(function () {
     var items = ajax("/products");
-    addList(items);
+    var item = items.list;
+    count = items.count;
+    addList(item);
+    countFun(count);
 });
 
 btn.addEventListener("click", function () {
     var items = ajax("/products");
-    addList(items);
+    var item = items.list;
+
+    addList(item);
 });
 
 tab.addEventListener("click", function (evt){
     var tabItem = $(evt.target).data("category");
     if (tabItem >= 0) {
-
         category = tabItem;
         start = 0;
         $("#list_items").empty();
         $("#list_items2").empty();
         var items = ajax("/products");
-        addList(items);
+        var item = items.list;
+        count = items.count;
+        addList(item);
+        countFun(count);
         $(".more").show();
     }
 
@@ -35,10 +42,10 @@ function ajax(url){
     $.ajax({
         type: 'GET',
         url: url,
-        data: {'start': start, "category": category},
+        data: {"category": category, 'start': start},
         async: false,
         success: function (data){
-            items = data.list;
+            items = data;
         },
         error: function (er){
             console.log(er);
@@ -69,7 +76,6 @@ function addItem(item, list){
 }
 
 function addList(items){
-    console.log(items.length);
 
     if(items.length > 0){
         for(var i = 0; i < items.length; i+=2){
@@ -84,7 +90,12 @@ function addList(items){
         $(".more").hide();
     }
     start += 4;
+}
 
-
-
+function countFun(count){
+    $('.list_count').each(function () {
+        $(this).empty();
+        var text = $(this).text();
+        $(this).text(text.replace("",count + " 개 "));
+    });
 }
