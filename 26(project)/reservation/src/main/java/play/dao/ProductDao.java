@@ -44,7 +44,11 @@ public class ProductDao {
     }
 
     public List<Integer> productCount() {
-        return jdbc.queryForList(COUNT, Collections.emptyMap(), Integer.class);
+        return jdbc.queryForList(SELECT_COUNT, Collections.emptyMap(), Integer.class);
+    }
+
+    public List<String> promotion(){
+        return jdbc.queryForList(SELECT_PROMOTION, Collections.emptyMap(), String.class);
     }
 
 }

@@ -20,11 +20,13 @@ public class ProductController {
             , @RequestParam(name = "start" , required=false, defaultValue = "0") int start){
         List<Item> list = viewService.getProducts(category, start);
         int count = viewService.getCount(category);
+        List<String> promotion = viewService.getPromotion();
 
         Map<String, Object> map = new HashMap<>();
 
         map.put("list",list);
         map.put("count", count);
+        map.put("promotion", promotion);
 
         return map;
     }

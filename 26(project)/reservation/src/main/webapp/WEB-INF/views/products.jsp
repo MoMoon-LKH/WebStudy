@@ -30,13 +30,7 @@
             <a class="head_my" href=""><span class="myInfo">예약 확인</span></a>
         </h2>
     </div>
-    <div class="promotion">
-        <div class="pre_p" style="display: none">
-            <a href="#" class="btn_pre_p" title="이전"></a>
-        </div>
-        <div class="next_p" style="display: none">
-            <a href="#" class="btn_next_p" title="다음"></a>
-        </div>
+    <div class="promotion" style=" width: 100%;">
         <div>
             <div class="promotion_visual">
                 <ul class="promotion_image"></ul>
@@ -136,8 +130,8 @@
         </a>
     </li>
 </template>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script type="text/javascript" src="../js/products.js"></script>
 </body>
 </html>

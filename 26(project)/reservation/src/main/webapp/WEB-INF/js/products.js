@@ -1,15 +1,21 @@
 var start = 0;
 var category = 0;
+var imageIndex = 0;
 var btn = document.querySelector("#btn");
 var tab = document.querySelector("#tabList");
+var ul = document.querySelector('.promotion_image');
+
 
 
 $(document).ready(function () {
     var items = ajax("/products");
     var item = items.list;
     count = items.count;
+    var promotion = items.promotion;
+    promotionList(promotion);
     addList(item);
     countFun(count);
+    slider();
 });
 
 btn.addEventListener("click", function () {
@@ -98,4 +104,34 @@ function countFun(count){
         var text = $(this).text();
         $(this).text(text.replace("",count + " 개 "));
     });
+}
+
+function promotionList(fileNames){
+    for (var i = 0; i < fileNames.length; i++) {
+        promotionAdd(fileNames[i]);
+    }
+    promotionAdd(fileNames[0]);
+}
+
+function promotionAdd(fileName){
+    var tag ='<li class="slide"><img src="../../img/' + fileName + '"></li>';
+    $(".promotion_image").append(tag);
+}
+
+function slider(){
+    var s = $(".slide");
+    ul.style.transform = "translateX(-" + 413.99*(imageIndex) + "px)";
+    ul.style.transition = 'transform 0.2s';
+
+    imageIndex++;
+
+    if (imageIndex >= s.length) {
+        imageIndex = 0;
+        setTimeout(function () {
+            ul.style.transform = "translateX(0px)";
+            ul.style.transition = 'transform 0s';
+        },10);
+    }
+
+    setTimeout(slider, 2000);
 }

@@ -38,5 +38,13 @@ public class ViewServiceImpl implements ViewService {
         }
         return count;
     }
+
+    @Override
+    @Transactional
+    public List<String> getPromotion() {
+        List<String> list;
+        list = productDao.promotion();
+        return list;
+    }
 }
 

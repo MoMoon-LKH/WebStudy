@@ -86,6 +86,30 @@ button{
     width: 100%;
     height: 40px;
 }
+.promotion_visual{
+    height: 180px;
+    padding-top: 15px;
+    overflow: hidden;
+    position: relative;
+}
+.promotion_image {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 7000px;
+
+}
+
+.promotion_image > li {
+    margin: 0;
+    padding: 0;
+    width: 413.99px;
+    float: left;
+}
+.promotion_image > li > img{
+    width: 100%;
+}
 
 .tabList{
     margin: 0;
