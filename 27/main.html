@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <style>
+            li{
+                list-style: none;
+                padding: 25px;
+                border-top: 1px solid gray;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>template handlebar</h1>
+        <section class="show">
+
+        </section>
+
+
+        <script type="mytemplate" id="listTemplate">
+            <li>
+                <div>게시자 : {{name}}</div>
+                <div class="content">{{content}}</div>
+                {{#likes like}}
+                    {{like}}
+                {{/likes}}
+                <div class="comment">
+                    <h3>댓글목록</h3>
+                    {{#if comment}}
+                        {{#each comment}}
+                            <div>{{@index}}번째 댓글 : {{this}}</div>
+                        {{/each}} 
+                    {{else}}
+                        <div>댓글이 아직 없군요</div>
+                    {{/if}}
+                </div>
+            </li>
+        </script>
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous"></script>
+        <script src="/tem.js"></script>
+    </body>
+</html>
