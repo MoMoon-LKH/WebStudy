@@ -2,8 +2,13 @@ package play.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import play.dto.Display;
 import play.dto.Item;
+import play.dto.UserComment;
+import play.service.DisplayService;
 import play.service.ViewService;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +19,9 @@ public class ProductController {
 
     @Autowired
     ViewService viewService;
+
+    @Autowired
+    DisplayService displayService;
 
     @GetMapping
     public Map<String, Object> getProducts(@RequestParam(name = "category" , required = true, defaultValue = "0") int category
@@ -27,6 +35,21 @@ public class ProductController {
         map.put("list",list);
         map.put("count", count);
         map.put("promotion", promotion);
+
+        return map;
+    }
+
+    @GetMapping("/{displayId}")
+    public Map<String, Object> getDisplay(@PathVariable(name = "displayId") int id,
+                                          HttpServletRequest request) {
+        List<Display> display = displayService.getDisplay(id);
+        List<UserComment> comments = displayService.getUserComment(id);
+        String avgNum = displayService.getAverageScore(comments);
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("display", display);
+        map.put("comments",comments);
+        map.put("avgNum", avgNum);
 
         return map;
     }

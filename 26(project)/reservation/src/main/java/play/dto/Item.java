@@ -28,6 +28,7 @@ public class Item {
         return description;
     }
 
+
     public String getFileName() {
         return fileName;
     }
@@ -55,6 +56,7 @@ public class Item {
     public void setPlaceName(String placeName) {
         this.placeName = placeName;
     }
+
 
     @Override
     public String toString() {

@@ -13,8 +13,8 @@ public class Test {
 
         ProductDao pd = ac.getBean(ProductDao.class);
 
-        List<String> list = pd.promotion();
-        System.out.println("list = " + list);
+        /*List<String> list = pd.promotion();
+        System.out.println("list = " + list);*/
 
         /*List<Integer> list = pd.productCount();
         int count = 0;
@@ -29,8 +29,8 @@ public class Test {
         System.out.println("count = " + count);
         */
 
-        /*List<Item> list = pd.products(5,0, 4);
+        List<Item> list = pd.products(0,0, 4);
         System.out.println("list = " + list);
-*/
+
     }
 }
