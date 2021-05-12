@@ -13,8 +13,8 @@
     </h2>
     <div class="imgNum">{{imgNum}}</div>
     <div class="btnGroup">
-      <button class="pre_btn"></button>
-      <button class="next_btn"></button>
+      <button class="pre_btn"><</button>
+      <button class="next_btn">></button>
     </div>
     <h2>{{title}}</h2>
   </div>
@@ -25,7 +25,6 @@
   <div class="eventInfo">
     <div>이벤트 정보</div>
     <div class="evtInformation">
-      <div>[네이버예약 특별할인]</div>
       <div>{{evt}}</div>
     </div>
     <button id="reservation"><span>예매하기</span></button>
@@ -41,8 +40,32 @@
         <li>오시는길</li>
       </ul>
     </div>
-    <div class="btContent">
+    <div class="detailInfo">
+      <div>
+        <div class="_head">[소개]</div>
+        <div class="detail_content">{{content}}</div>
+      </div>
+      <div>
+        <div class="detail_head">[공지사항]</div>
+        <img class="detail_notice" src="../../img/notice.jpg">
+      </div>
+    </div>
 
+    <div class="directions">
+      <div class="direction_image">
+        <img src="">
+      </div>
+      <div class="direction_content">
+        <div class="direction_title">{{description}}</div>
+        <div class="direction_addr">{{place_street}}</div>
+        <div class="direction_street"><span>지번</span>{{place_lot}}</div>
+        <div class="direction_place">{{place_name}}</div>
+        <div class="direction_tel">{{tel}}</div>
+      </div>
+    </div>
+    <div class="direction_btn">
+      <button class="findRoad">길찾기</button>
+      <button class="navi">내비게이션</button>
     </div>
   </div>
 

@@ -39,18 +39,5 @@ public class ProductController {
         return map;
     }
 
-    @GetMapping("/{displayId}")
-    public Map<String, Object> getDisplay(@PathVariable(name = "displayId") int id,
-                                          HttpServletRequest request) {
-        List<Display> display = displayService.getDisplay(id);
-        List<UserComment> comments = displayService.getUserComment(id);
-        String avgNum = displayService.getAverageScore(comments);
 
-        Map<String, Object> map = new HashMap<>();
-        map.put("display", display);
-        map.put("comments",comments);
-        map.put("avgNum", avgNum);
-
-        return map;
-    }
 }
