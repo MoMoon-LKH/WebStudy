@@ -5,7 +5,7 @@ import java.util.Date;
 public class UserComment {
     private int id;
     private String reservation_email;
-    private Date reservation_date;
+    private String reservation_date;
     private Double score;
     private String comment;
     private String file_name;
@@ -26,11 +26,11 @@ public class UserComment {
         this.reservation_email = reservation_email;
     }
 
-    public Date getReservation_date() {
+    public String getReservation_date() {
         return reservation_date;
     }
 
-    public void setReservation_date(Date reservation_date) {
+    public void setReservation_date(String reservation_date) {
         this.reservation_date = reservation_date;
     }
 

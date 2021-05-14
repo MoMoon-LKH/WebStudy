@@ -15,8 +15,9 @@ public class DisplayTest {
         DisplayService dis = ac.getBean(DisplayService.class);
 
         List<UserComment> list = dis.getUserComment(1);
-        String num = dis.getAverageScore(list);
+        System.out.println("list = " + list);
+        /*String num = dis.getAverageScore(list);
 
-        System.out.println("num = " + num);
+        System.out.println("num = " + num);*/
     }
 }

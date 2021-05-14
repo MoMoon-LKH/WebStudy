@@ -19,16 +19,12 @@ public class DisplayController {
     @Autowired
     DisplayService displayService;
 
-    @GetMapping("/products/{displayId}")
+    @GetMapping("/detail/{displayId}")
     public String getDisplay(@PathVariable(name = "displayId") int id,
                                           Model model) {
-        List<Display> display = displayService.getDisplay(id);
-        List<UserComment> comments = displayService.getUserComment(id);
-        String avgScore = displayService.getAverageScore(comments);
 
-        model.addAttribute("display", display);
-        model.addAttribute("comments", comments);
-        model.addAttribute("avgScore", avgScore);
+        model.addAttribute("id", id);
+
         return "detail";
     }
 }

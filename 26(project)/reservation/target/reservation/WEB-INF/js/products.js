@@ -63,7 +63,7 @@ function ajax(url){
 
 function addItem(item, list){
     var tem = '<li className="item" style="width: 100%; display: inline-block; float: left; overflow: hidden">';
-        tem += '<a href="/products/'+ item.id +'" style="text-decoration: none; display: block">';
+        tem += '<a href="/detail/'+ item.id +'" style="text-decoration: none; display: block">';
         tem += '<div className="item_container">';
         tem += '<img alt=item.description src="../../img/'+ item.fileName + '"  style="width: 200px; margin: 0 auto; padding: 0; opacity: 1">';
         tem += '<div className="item_text" style="width: 200px; text-align: left; background: white;  margin: -3px 3px; padding: 0;">';
