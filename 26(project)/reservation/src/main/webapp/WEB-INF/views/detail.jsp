@@ -13,7 +13,10 @@
     <meta charset="UTF-8">
     <title>상세페이지</title>
     <link href="../css/detail.css" rel="stylesheet">
-
+    <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
 </head>
 <div class="container">
     <div class="head">
@@ -49,21 +52,25 @@
             <a class="head_img" href="/detail"><img class="head_img" src="../../img/spr_title.png"/> </a>
             <a class="head_my" href=""><span class="myInfo">예약 확인</span></a>
         </h2>
+        <div class="emptySpace"></div>
         <div class="imgNum"><span id="imgStart">1</span><span>/</span><span id="imgLength"></span></div>
         <div class="btnGroup">
             <button class="pre_btn"><</button>
             <button class="next_btn">></button>
         </div>
         {{#display}}
-        <h2>{{description}}</h2>
+        <h2 class="detail_title">{{description}}</h2>
     </div>
     <div class="explanation">
-        <div clas="explainContent">{{content}}</div>
-        <button class="moreBtn">펼쳐보기&or;</button>
-        <button class="foldBtn">접기&and;</button>
+        <div class="explainContent">{{content}}</div>
+        <div class="explainBtn">
+            <button class="moreBtn">펼쳐보기&or;</button>
+            <button class="foldBtn">접기&and;</button>
+        </div>
     </div>
     <div class="eventInfo">
-        <div>이벤트 정보</div>
+        <div class="eventTitle">이벤트 정보</div>
+        <hr width="95%" color="#d4dadf" size="0.2">
         <div class="evtInformation">
             {{#if event}}
                 <div>{{event}}</div>
@@ -71,31 +78,35 @@
                 <div>이벤트가 없습니다.</div>
             {{/if}}
         </div>
-        <button id="reservation"><span>예매하기</span></button>
     </div>
     {{/display}}
-    <div class="bottomExplain">
-    </div>
+    <button id="reservationBtn"><span>예매하기</span></button>
 </script>
 
 <!----------------------- comment tem ----------------------------->
 <script type="myTemplate" id="comment">
     <div class="ratingContainer">
         <div class="allScore">
-            <span>스코어 </span><span>{{avgScore}}</span><span> / 5.0</span>
-            <span><span id="comment_len"></span><span> 등록</span> </span>
+            <div class="review">예매자 한줄평</div>
+            <span>스코어 </span><span id="avgScore">{{avgScore}}</span><span class="rightScore"> / 5.0</span>
+            <span id="totalComment"><span id="comment_len"></span><span class="rightScore"> 등록</span> </span>
+            <hr width="90%" color="#d4dadf" size="1">
         </div>
         <ul class="commentItems">
             {{#each comments}}
             <li class="commentItem">
                 <div class="comment_description"></div>
                 <div>{{comment}}</div>
-                <span> {{score}} </span><span> {{reservation_email}} </span><span> {{reservation_date}} 방문</span>
+                <div class="comment_user_info">
+                <span id="score"> {{score}} </span><span> {{reservation_email}} </span><span> {{reservation_date}} 방문</span>
+                </div>
+                <hr width="90%" color="#d4dadf" size="1">
             </li>
             {{/each}}
         </ul>
+        <div id="rvExplain">네이버 예약을 통해 실제 방문한 사용자가 남긴 평가입니다.</div>
     </div>
-
+    <button class="moreComment">예매자 한줄평 더보기&rarr;</button>
 </script>
 
 <!----------------------- bottom tem ----------------------------->
@@ -139,10 +150,9 @@
     </div>
     </div>
 </script>
-<script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
+
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous"></script>
 <script src="../js/detail.js" type="text/javascript"></script>
 
