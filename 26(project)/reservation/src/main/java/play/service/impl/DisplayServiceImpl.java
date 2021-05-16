@@ -20,16 +20,14 @@ public class DisplayServiceImpl implements DisplayService {
     @Override
     @Transactional
     public List<Display> getDisplay(Integer displayId) {
-        List<Display> list;
-        list = displayDao.getDisplay(displayId);
+        List<Display> list = displayDao.getDisplay(displayId);
         return list;
     }
 
     @Override
     @Transactional
     public List<UserComment> getUserComment(Integer displayId) {
-        List<UserComment> list;
-        list = displayDao.getUserComment(displayId);
+        List<UserComment> list = displayDao.getUserComment(displayId);
         return list;
     }
 
@@ -42,5 +40,18 @@ public class DisplayServiceImpl implements DisplayService {
         }
         averageScore /= list.size();
         return String.format("%.1f",averageScore);
+    }
+
+    @Override
+    @Transactional
+    public List<String> getImages(Integer displayId) {
+        List<String> list = displayDao.getImages(displayId);
+        return list;
+    }
+
+    @Override
+    @Transactional
+    public String getMap(Integer displayId) {
+        return displayDao.getMap(displayId);
     }
 }

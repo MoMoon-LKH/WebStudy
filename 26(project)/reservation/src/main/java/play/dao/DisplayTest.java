@@ -19,7 +19,15 @@ public class DisplayTest {
         System.out.println("dis = " + dis);
 */
 
+/*
         List<UserComment> us = dao.getUserComment(1);
         System.out.println("us = " + us);
+*/
+        List<String> list = dao.getImages(50);
+        System.out.println("list = " + list);
+
+        String st = dao.getMap(50);
+        System.out.println("st = " + st);
+
     }
 }

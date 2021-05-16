@@ -15,4 +15,15 @@ public class DisplaySqls {
             "join reservation_user_comment_image on reservation_user_comment.id = reservation_user_comment_id " +
             "join file_info on reservation_user_comment_image.file_id = file_info.id " +
             "where display_info.id = :id";
+
+    public static final String SELECT_IMAGES = "select file_info.file_name from display_info " +
+            "join product on product.id = display_info.product_id " +
+            "join product_image on product_image.product_id = product.id " +
+            "join file_info on file_info.id = product_image.file_id " +
+            "where display_info.id = :id order by type != 'ma'";
+
+    public static final String SELECT_MAP_IMAGE = "select file_info.file_name from display_info " +
+            "join display_info_image on display_info_image.display_info_id = display_info.id " +
+            "join file_info on display_info_image.file_id = file_info.id " +
+            "where display_info.id = :id";
 }

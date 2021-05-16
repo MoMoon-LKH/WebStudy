@@ -11,8 +11,13 @@ $(document).ready(function () {
 
     var items = initialAjax(id);
     var description = items.display[0].description;
+    var images = items.images;
+    var mapImage ="../../img_map/" + items.mapImage;
     console.log(items);
-    console.log(description);
+    console.log(mapImage);
+
+
+
 
     var displayHTML = bindHead(items);
     var commentHTML = bindComment(items);
@@ -27,6 +32,11 @@ $(document).ready(function () {
     bot.innerHTML = bottomHTML;
 
     $(".comment_description").text(description);
+    $("#comment_len").text(items.comments.length + "건");
+    $("#imgLength").text(images.length);
+    document.getElementById("direction_map").src = mapImage;
+
+
 });
 
 
@@ -44,6 +54,8 @@ function initialAjax(id){
     });
     return items;
 }
+
+
 
 
 

@@ -42,4 +42,17 @@ public class DisplayDao {
         params.put("id", displayId);
         return jdbc.query(SELECT_COMMENT, params, commentMap);
     }
+
+    public List<String> getImages(Integer displayId){
+        Map<String, Integer> params = new HashMap<>();
+        params.put("id", displayId);
+        return jdbc.queryForList(SELECT_IMAGES, params, String.class);
+    }
+
+    public String getMap(Integer displayId) {
+        Map<String, Integer> params = new HashMap<>();
+        params.put("id", displayId);
+        return jdbc.queryForObject(SELECT_MAP_IMAGE, params, String.class);
+    }
+
 }

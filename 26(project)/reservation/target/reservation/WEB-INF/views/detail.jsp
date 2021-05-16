@@ -12,6 +12,8 @@
 <head>
     <meta charset="UTF-8">
     <title>상세페이지</title>
+    <link href="../css/detail.css" rel="stylesheet">
+
 </head>
 <div class="container">
     <div class="head">
@@ -37,6 +39,8 @@
 </div>
 
 <input type="hidden" id="idValue" value="${id}"/>
+
+
 <!------------------------- 템플릿 ------------------------------------>
 
 <script type="myTemplate" id="dis">
@@ -45,7 +49,7 @@
             <a class="head_img" href="/detail"><img class="head_img" src="../../img/spr_title.png"/> </a>
             <a class="head_my" href=""><span class="myInfo">예약 확인</span></a>
         </h2>
-        <div class="imgNum">1/</div>
+        <div class="imgNum"><span id="imgStart">1</span><span>/</span><span id="imgLength"></span></div>
         <div class="btnGroup">
             <button class="pre_btn"><</button>
             <button class="next_btn">></button>
@@ -74,11 +78,12 @@
     </div>
 </script>
 
+<!----------------------- comment tem ----------------------------->
 <script type="myTemplate" id="comment">
     <div class="ratingContainer">
         <div class="allScore">
             <span>스코어 </span><span>{{avgScore}}</span><span> / 5.0</span>
-            <span><span>건</span><span> 등록</span> </span>
+            <span><span id="comment_len"></span><span> 등록</span> </span>
         </div>
         <ul class="commentItems">
             {{#each comments}}
@@ -93,9 +98,10 @@
 
 </script>
 
+<!----------------------- bottom tem ----------------------------->
 <script type="myTemplate" id="bottom">
-    <div class="btTab">
-        <ul>
+    <div>
+        <ul class="btTab">
             <li>상세정보</li>
             <li>오시는길</li>
         </ul>
@@ -115,7 +121,7 @@
 
     <div class="directions">
         <div class="direction_image">
-            <img src="">
+            <img id="direction_map" src="../../img_map/">
         </div>
         <div class="direction_content">
             {{#display}}

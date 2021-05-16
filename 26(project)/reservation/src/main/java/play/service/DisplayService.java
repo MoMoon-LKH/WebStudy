@@ -9,4 +9,6 @@ public interface DisplayService {
     public List<Display> getDisplay(Integer displayId);
     public List<UserComment> getUserComment(Integer displayId);
     public String getAverageScore(List<UserComment> list);
+    public List<String> getImages(Integer displayId);
+    public String getMap(Integer displayId);
 }

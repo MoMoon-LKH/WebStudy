@@ -22,9 +22,7 @@ public class DisplayController {
     @GetMapping("/detail/{displayId}")
     public String getDisplay(@PathVariable(name = "displayId") int id,
                                           Model model) {
-
         model.addAttribute("id", id);
-
         return "detail";
     }
 }

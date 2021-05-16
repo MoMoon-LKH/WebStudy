@@ -44,12 +44,16 @@ public class ProductController {
         List<Display> display = displayService.getDisplay(id);
         List<UserComment> comments = displayService.getUserComment(id);
         String avgScore = displayService.getAverageScore(comments);
+        List<String> images = displayService.getImages(id);
+        String mapImage = displayService.getMap(id);
 
         Map<String, Object> map = new HashMap<>();
 
         map.put("display", display);
         map.put("comments", comments);
         map.put("avgScore", avgScore);
+        map.put("images", images);
+        map.put("mapImage", mapImage);
 
         return map;
     }
