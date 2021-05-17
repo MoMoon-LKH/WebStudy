@@ -13,10 +13,6 @@
     <meta charset="UTF-8">
     <title>상세페이지</title>
     <link href="../css/detail.css" rel="stylesheet">
-    <script
-            src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"></script>
 </head>
 <div class="container">
     <div class="head">
@@ -98,7 +94,7 @@
                 <div class="comment_description"></div>
                 <div>{{comment}}</div>
                 <div class="comment_user_info">
-                <span id="score"> {{score}} </span><span> {{reservation_email}} </span><span> {{reservation_date}} 방문</span>
+                    <span id="score"> {{score}} </span><span class="ucb"></span></span><span>{{reservation_email}}</span><span class="ucb"></span><span >{{reservation_date}}</span><span> 방문</span>
                 </div>
                 <hr width="90%" color="#d4dadf" size="1">
             </li>
@@ -111,22 +107,22 @@
 
 <!----------------------- bottom tem ----------------------------->
 <script type="myTemplate" id="bottom">
-    <div>
+    <div class="btTabDiv">
         <ul class="btTab">
-            <li>상세정보</li>
-            <li>오시는길</li>
+            <li id="detail_info" data-index="0">상세정보</li>
+            <li id="detail_nav" data-index="1">오시는길</li>
         </ul>
     </div>
     <div class="detailInfo">
         <div>
-            <div class="_head">[소개]</div>
+            <div class="detail_head">[소개]</div>
             {{#display}}
                 <div class="detail_content">{{content}}</div>
             {{/display}}
         </div>
         <div>
             <div class="detail_head">[공지사항]</div>
-            <img class="detail_notice" src="../../img/notice.jpg">
+            <img id="detail_notice" class="detail_content" src="../../img/notice.jpg">
         </div>
     </div>
 
@@ -138,20 +134,24 @@
             {{#display}}
                 <div class="direction_title"></div>
                 <div class="direction_addr">{{placeStreet}}</div>
-                <div class="direction_street"><span>지번 </span>{{placeLot}}</div>
-                <div class="direction_place">{{placeName}}</div>
+                <div class="direction_street"><span style="color: lightgray">지번 </span>{{placeLot}}</div>
+                <div class="direction_place" style="color: gray">{{placeName}}</div>
                 <div class="direction_tel">{{tel}}</div>
             {{/display}}
         </div>
-    </div>
-    <div class="direction_btn">
-        <button class="findRoad">길찾기</button>
-        <button class="navi">내비게이션</button>
-    </div>
+        <div class="direction_btn">
+            <button id="findRoad" class="dir_btn">길찾기</button>
+            <span id="verticalBar" style="float: left"></span>
+            <button id="navi" class="dir_btn">내비게이션</button>
+            <div class="emptySpace2"></div>
+        </div>
     </div>
 </script>
 
-
+<script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous"></script>
 <script src="../js/detail.js" type="text/javascript"></script>

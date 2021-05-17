@@ -7,8 +7,8 @@ public class DisplaySqls {
             "join display_info on product.id = display_info.product_id " +
             "where display_info.id = :id";
 
-    public static final String SELECT_COMMENT = "select reservation_user_comment.id, reservation_info.reservation_email, " +
-            "reservation_info.reservation_date, reservation_user_comment.score, reservation_user_comment.comment, " +
+    public static final String SELECT_COMMENT = "select reservation_user_comment.id, concat(left(reservation_info.reservation_email,4), '****') as reservation_email, " +
+            "DATE_FORMAT(reservation_info.reservation_date, '%Y.%m.%d') as reservation_date, reservation_user_comment.score, reservation_user_comment.comment, " +
             "file_info.file_name from display_info " +
             "join reservation_info on display_info.id = reservation_info.display_info_id " +
             "join reservation_user_comment on reservation_info.id = reservation_user_comment.reservation_info_id " +

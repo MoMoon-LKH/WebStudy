@@ -37,8 +37,9 @@ button{
     border: none;
     outline: none;
     background-color: #f8f9fa;
-    font-size: 17px;
+    font-size: 16px;
     color: #5f5f5f;
+    cursor: pointer;
 
 }
 
@@ -75,6 +76,10 @@ button{
 .emptySpace{
     clear: both;
     padding-top: 30px;
+}
+
+.emptySpace2{
+    clear: both;
 }
 
 .imgNum {
@@ -119,11 +124,15 @@ button{
 
 .explainContent{
     text-align: left;
-    padding: 20px 20px 35px 20px;
+    padding: 20px 20px 0px 20px;
     line-height: 180%;
     background-color: white;
     font-size: 15px;
     font-family: NanumGothicRegular;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .explainBtn{
@@ -139,19 +148,28 @@ button{
 .eventInfo{
     text-align: left;
     background-color: lightgoldenrodyellow;
-    font-size: 15px;
+    font-size: 14px;
     padding: 20px;
     color: gray;
 }
 
 .eventTitle{
     color: black;
+    font-family: NanumGothicBold;
+}
+
+.evtInformation{
+    font-size: 13px;
 }
 
 #reservationBtn{
     margin-top: 3px;
     background-color: #2DC700;
     color: white;
+}
+
+.moreComment{
+    font-size: 15px;
 }
 
 .rating{
@@ -170,6 +188,7 @@ button{
     text-align: left;
     background-color: white;
     font-size: 13px;
+    line-height: 150%;
 }
 
 .rightScore{
@@ -188,6 +207,14 @@ button{
     font-weight: bold;
 }
 
+.ucb{
+    border: 0.5px solid #e9ecef;
+    outline: none;
+    height: 0.5px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #rvExplain{
     text-align: center;
     font-size: 12px;
@@ -198,15 +225,19 @@ button{
     margin-top: 5px;
 }
 
-.btTab{
+.btTabDiv{
+    height: 40px;
     background-color: white;
+    margin: 0;
+    padding: 0;
+
 }
 
 .btTab > li{
     float: left;
     font-family: NanumGothicBold;
     font-size: 16px;
-    margin-left: 20px;
+    margin-left: 95px;
     margin-top: 12px;
     cursor:pointer;
 }
@@ -214,11 +245,101 @@ button{
 .btTab > li:hover{
     color: #2DB400;
     border-bottom: 3px solid #2DB400;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
 }
 
 .btTab::after{
     display: block; content: ""; clear: both;
+}
+
+.detailInfo{
+    margin-top: 2px;
+    background-color: white;
+    font-size: 14px;
+    text-align: left;
+    padding: 20px;
+}
+
+.detail_head{
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.detail_content{
+    margin-bottom: 20px;
+}
+
+#detail_notice{
+    width: 300px;
+    margin-left: 39px;
+}
+
+.directions{
+    margin-top: 2px;
+    padding: 20px;
+    background-color: white;
+    display: none;
+}
+
+#direction_map{
+    width: 300px;
+    margin-left: 10px;
+}
+
+.direction_content{
+    text-align: left;
+    font-size: 13px;
+    margin-top: 10px;
+    line-height: 180%;
+}
+
+.direction_title{
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.direction_btn{
+    margin-top: 5px;
+    background-color: #f8f9fa;
+}
+
+#verticalBar{
+    border: 1px solid #e9ecef;
+    width: 0.1px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.dir_btn{
+    padding: 0;
+    margin: 0;
+    width: 183px;
+    font-size: 14px;
+    float: left;
+    color: #5f5f5f;
+}
+
+
+
+.gototop{
+    margin-top: 15px;
+}
+
+.lnk_top{
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+}
+
+.footer_copy{
+    font-family: NanumGothicRegular;
+    color: grey;
+    font-size: 13px;
+    line-height: 130%;
+}
+
+.copyright{
+    font-size: 12px;
 }
 
 
