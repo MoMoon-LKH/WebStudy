@@ -14,7 +14,7 @@ $(document).ready(function () {
     var images = items.images;
     var mapImage ="../../img_map/" + items.mapImage;
     console.log(items);
-    console.log(mapImage);
+    console.log(images);
 
     var displayHTML = bindHead(items);
     var commentHTML = bindComment(items);
@@ -32,7 +32,7 @@ $(document).ready(function () {
     $("#comment_len").text(items.comments.length + "건");
     $("#imgLength").text(images.length);
     document.getElementById("direction_map").src = mapImage;
-
+    addImages(images);
 
 
     $(".btTab").click(function(evt){
@@ -82,6 +82,49 @@ function initialAjax(id){
     return items;
 }
 
+function addImages(images){
+    var length = images.length;
+    var i = 0;
+    var current = 1
+
+    $("#imgStart").text(current);
+    $(".header").css({
+        "background-image": "url('../../img/" + images[i] + "')",
+        "background-repeat" : "no-repeat",
+        "background-position" : "center center",
+        "background-size": "cover",
+        "opacity": "0.8"
+    });
+
+    $(".pre_btn").click(function() {
+        if (i > 0){
+            i--;
+            $(".header").css({
+                "background-image": "url('../../img/" + images[i] + "')",
+                "background-repeat" : "no-repeat",
+                "background-position" : "center center",
+                "background-size": "cover",
+                "opacity": "0.8"
+            });
+
+            $("#imgStart").text(--current);
+        }
+    })
+
+    $(".next_btn").click(function () {
+        if(i < length - 1) {
+            i++;
+            $(".header").css({
+                "background-image": "url('../../img/" + images[i] + "')",
+                "background-repeat": "no-repeat",
+                "background-position": "center center",
+                "background-size": "cover",
+                "opacity": "0.8"
+            });
+            $("#imgStart").text(++current);
+        }
+    });
+}
 
 
 

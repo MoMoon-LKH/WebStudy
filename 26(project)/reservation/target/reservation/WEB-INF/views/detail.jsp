@@ -49,7 +49,7 @@
             <a class="head_my" href=""><span class="myInfo">예약 확인</span></a>
         </h2>
         <div class="emptySpace"></div>
-        <div class="imgNum"><span id="imgStart">1</span><span>/</span><span id="imgLength"></span></div>
+        <div class="imgNum"><span id="imgStart"></span><span>/</span><span id="imgLength"></span></div>
         <div class="btnGroup">
             <button class="pre_btn"><</button>
             <button class="next_btn">></button>

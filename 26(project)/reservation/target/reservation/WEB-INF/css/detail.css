@@ -52,6 +52,7 @@ button{
 
 .header{
     height: 400px;
+    background-color: white;
 }
 
 .logo{
@@ -101,9 +102,10 @@ button{
 .pre_btn, .next_btn{
     border: none;
     outline: none;
-    opacity: 0.2;
+    opacity: 0.7;
     font-size: 35px;
     width: 20px;
+    color: white;
     background-color: transparent;
 }
 
