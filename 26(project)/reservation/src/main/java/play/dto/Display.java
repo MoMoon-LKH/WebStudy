@@ -10,6 +10,7 @@ public class Display {
     private String placeName;
     private String placeLot;
     private String placeStreet;
+    private String openingHours;
     private String tel;
 
 
@@ -77,17 +78,15 @@ public class Display {
         this.tel = tel;
     }
 
-    @Override
-    public String toString() {
-        return "Display{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", content='" + content + '\'' +
-                ", event='" + event + '\'' +
-                ", placeName='" + placeName + '\'' +
-                ", placeLot='" + placeLot + '\'' +
-                ", placeStreet='" + placeStreet + '\'' +
-                ", tel='" + tel + '\'' +
-                '}';
+    public String getOpeningHours() {
+        return openingHours;
     }
+
+    public void setOpeningHours(String openingHours) {
+        this.openingHours = openingHours;
+    }
+
+
+
+
 }

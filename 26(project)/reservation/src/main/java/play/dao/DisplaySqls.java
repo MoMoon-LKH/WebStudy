@@ -26,4 +26,15 @@ public class DisplaySqls {
             "join display_info_image on display_info_image.display_info_id = display_info.id " +
             "join file_info on display_info_image.file_id = file_info.id " +
             "where display_info.id = :id";
+
+    public static final String SELECT_PRICE = "select product_price.id, product_price.price_type_name, " +
+            "product_price.price , product_price.discount_rate from display_info " +
+            "join product on display_info.product_id = product.id " +
+            "join product_price on product.id = product_price.product_id " +
+            "where display_info.id = :id";
+
+    /*public static final String SELECT_COUNT = "select reservation_info_price.count from display_info " +
+            "join reservation_info on reservation_info.display_info_id = display_info.id " +
+            "join reservation_info_price on reservation_info_price.reservation_info_id = " +
+            "reservation_info.id where display_info.id = :id";*/
 }

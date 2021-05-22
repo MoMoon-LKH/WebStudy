@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import play.dao.DisplayDao;
 import play.dto.Display;
+import play.dto.ItemPrice;
 import play.dto.UserComment;
 import play.service.DisplayService;
 
@@ -53,5 +54,12 @@ public class DisplayServiceImpl implements DisplayService {
     @Transactional
     public String getMap(Integer displayId) {
         return displayDao.getMap(displayId);
+    }
+
+    @Override
+    @Transactional
+    public List<ItemPrice> getPrice(Integer displayId) {
+        List<ItemPrice> list = displayDao.getPrice(displayId);
+        return list;
     }
 }

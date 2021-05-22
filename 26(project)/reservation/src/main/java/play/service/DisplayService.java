@@ -1,6 +1,7 @@
 package play.service;
 
 import play.dto.Display;
+import play.dto.ItemPrice;
 import play.dto.UserComment;
 
 import java.util.List;
@@ -11,4 +12,6 @@ public interface DisplayService {
     public String getAverageScore(List<UserComment> list);
     public List<String> getImages(Integer displayId);
     public String getMap(Integer displayId);
+    public List<ItemPrice> getPrice(Integer displayId);
+
 }

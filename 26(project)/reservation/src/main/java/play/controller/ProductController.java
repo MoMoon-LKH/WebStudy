@@ -19,7 +19,6 @@ public class ProductController {
 
     @Autowired
     ViewService viewService;
-
     @Autowired
     DisplayService displayService;
 

@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import play.config.ApplicationConfig;
 import play.dto.Display;
+import play.dto.ItemPrice;
 import play.dto.UserComment;
 
 import java.util.List;
@@ -19,13 +20,24 @@ public class DisplayTest {
         System.out.println("dis = " + dis);
 */
 
-        List<UserComment> us = dao.getUserComment(1);
+   /*     List<UserComment> us = dao.getUserComment(1);
         System.out.println("us = " + us);
+   */
       /*  List<String> list = dao.getImages(50);
         System.out.println("list = " + list);
 
         String st = dao.getMap(50);
         System.out.println("st = " + st);
 */
+
+        List<ItemPrice> list = dao.getPrice(1);
+        System.out.println("list = " + list);
+/*
+
+        List<Integer> i = dao.getCount(2);
+        System.out.println("i = " + i);
+*/
+
+
     }
 }
