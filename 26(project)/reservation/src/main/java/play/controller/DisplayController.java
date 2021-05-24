@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import play.dto.Display;
+import play.dto.ItemPrice;
 import play.dto.UserComment;
 import play.service.DisplayService;
 
@@ -24,5 +25,17 @@ public class DisplayController {
                                           Model model) {
         model.addAttribute("id", id);
         return "detail";
+    }
+
+    @GetMapping("/reservation/{displayId}")
+    public String getReservation(@PathVariable(name = "displayId", required = true) int id,
+                                 Model model) {
+        List<Display> displays = displayService.getDisplay(id);
+        List<ItemPrice> itemPrices = displayService.getPrice(id);
+
+        model.addAttribute("display", displays);
+        model.addAttribute("itemPrice", itemPrices);
+
+        return "reservation";
     }
 }
