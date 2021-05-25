@@ -30,12 +30,7 @@ public class DisplayController {
     @GetMapping("/reservation/{displayId}")
     public String getReservation(@PathVariable(name = "displayId", required = true) int id,
                                  Model model) {
-        List<Display> displays = displayService.getDisplay(id);
-        List<ItemPrice> itemPrices = displayService.getPrice(id);
-
-        model.addAttribute("display", displays);
-        model.addAttribute("itemPrice", itemPrices);
-
+        model.addAttribute("id", id);
         return "reservation";
     }
 }

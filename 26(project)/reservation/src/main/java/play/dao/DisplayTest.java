@@ -14,25 +14,25 @@ public class DisplayTest {
 
         ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         DisplayDao dao = ac.getBean(DisplayDao.class);
-/*
 
-        List<Display> dis = dao.getDisplay(1);
+
+        List<Display> dis = dao.getDisplay(5);
         System.out.println("dis = " + dis);
-*/
 
    /*     List<UserComment> us = dao.getUserComment(1);
         System.out.println("us = " + us);
-   */
+
+    */
       /*  List<String> list = dao.getImages(50);
         System.out.println("list = " + list);
 
         String st = dao.getMap(50);
         System.out.println("st = " + st);
-*/
-
+        */
+        /*
         List<ItemPrice> list = dao.getPrice(1);
         System.out.println("list = " + list);
-/*
+        /*
 
         List<Integer> i = dao.getCount(2);
         System.out.println("i = " + i);

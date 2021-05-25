@@ -2,7 +2,7 @@ package play.dao;
 
 public class DisplaySqls {
     public static final String SELECT_DISPLAY = "select display_info.id, product.description, product.content, " +
-            "product.event, display_info.place_name, display_info.place_lot, display_info.place_street, " +
+            "product.event, display_info.place_name, display_info.opening_hours, display_info.place_lot, display_info.place_street, " +
             "display_info.tel from product " +
             "join display_info on product.id = display_info.product_id " +
             "where display_info.id = :id";

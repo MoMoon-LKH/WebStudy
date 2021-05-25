@@ -76,7 +76,7 @@
         </div>
     </div>
     {{/display}}
-    <button id="reservationBtn"><span>예매하기</span></button>
+    <button id="reservationBtn" onclick="location.href='/reservation/${id}'"><span>예매하기</span></button>
 </script>
 
 <!----------------------- comment tem ----------------------------->

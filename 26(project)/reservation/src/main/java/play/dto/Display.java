@@ -86,7 +86,18 @@ public class Display {
         this.openingHours = openingHours;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Display{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", content='" + content + '\'' +
+                ", event='" + event + '\'' +
+                ", placeName='" + placeName + '\'' +
+                ", placeLot='" + placeLot + '\'' +
+                ", placeStreet='" + placeStreet + '\'' +
+                ", openingHours='" + openingHours + '\'' +
+                ", tel='" + tel + '\'' +
+                '}';
+    }
 }

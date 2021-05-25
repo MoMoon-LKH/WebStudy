@@ -13,5 +13,6 @@ public interface DisplayService {
     public List<String> getImages(Integer displayId);
     public String getMap(Integer displayId);
     public List<ItemPrice> getPrice(Integer displayId);
+    public String getReservationDate();
 
 }

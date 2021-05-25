@@ -10,7 +10,11 @@ import play.dto.UserComment;
 import play.service.DisplayService;
 
 import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class DisplayServiceImpl implements DisplayService {
@@ -61,5 +65,19 @@ public class DisplayServiceImpl implements DisplayService {
     public List<ItemPrice> getPrice(Integer displayId) {
         List<ItemPrice> list = displayDao.getPrice(displayId);
         return list;
+    }
+
+    @Override
+    @Transactional
+    public String getReservationDate() {
+        int random = (int) (Math.random() * 5 + 1);
+        SimpleDateFormat nowFormat = new SimpleDateFormat("yyyy.MM.dd");
+        Calendar cal = Calendar.getInstance();
+
+        cal.add(Calendar.DATE, random);
+
+        String now = nowFormat.format(cal.getTime());
+
+        return now;
     }
 }
