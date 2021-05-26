@@ -11,9 +11,10 @@ $(document).ready(function () {
     var items = initialAjax(id);
     var price = new Object();
     price["prices"] = items.itemPrices;
-    console.log(items);
+    var image = "../../img/" + items.image;
 
     price.prices = getPrices(price.prices);
+
     var priceHTML = bindPrice(price);
     var productHTML = bindProduct(items.display[0]);
 
@@ -24,8 +25,10 @@ $(document).ready(function () {
     productContent.innerHTML = productHTML;
 
     var regDate = document.querySelector("#re_date");
+    $("#regDate_input").val(items.reservationDate);
     regDate.innerText = items.reservationDate;
 
+    setBackground(image);
     getPeriod(items.display[0].openingHours);
 });
 
@@ -69,6 +72,18 @@ function getPriceType(price) {
             break;
     }
     return price;
+}
+
+function setBackground(imageSrc) {
+
+    $("#product_back").css({
+        "background-image": "url('" + imageSrc + "')",
+        "width": "100%",
+        "height" : "400px",
+        "background-repeat" : "no-repeat",
+            "background-size": "cover",
+            "opacity": "0.7"
+    });
 }
 
 function getPeriod(period){

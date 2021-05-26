@@ -45,7 +45,7 @@
 <script type="myTemplate" id="dis">
     <div class="header">
         <h2 class="logo">
-            <a class="head_img" href="/detail"><img class="head_img" src="../../img/spr_title.png"/> </a>
+            <a class="head_img" href="/product"><img class="head_img" src="../../img/spr_title.png"/> </a>
             <a class="head_my" href=""><span class="myInfo">예약 확인</span></a>
         </h2>
         <div class="emptySpace"></div>

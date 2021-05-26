@@ -1,0 +1,235 @@
+body{
+    background-color: #d4dadf;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: auto;
+    min-width: 320px;
+    max-width: 414px;
+    min-height: 100%;
+    min-height: 100vh;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.container{
+    background-color: #e9ecef;
+    width: 100%;
+    max-width: 414px;
+    text-align: center;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product_info{
+    background: white;
+}
+
+#product_back{
+    width: 100%;
+
+
+}
+
+#product{
+    color: gold;
+    padding-top: 300px;
+    font-size: 19px;
+}
+
+.title{
+    color: white;
+}
+
+.infoList{
+    background-color: white;
+}
+
+.info{
+    padding:  10px 20px 10px 20px;
+    font-size: 14px;
+    text-align: left;
+    line-height: 150%;
+
+}
+
+.info_title {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.price{
+    margin-top: 5px;
+    text-align: left;
+    background-color: white;
+}
+
+.price_content{
+    width: 100%;
+    padding: 10px 20px 15px 20px;
+}
+.border {
+    width: 95%;
+    border-bottom: #d4dadf 1px solid;
+    margin-left: 2.5%;
+    padding-top: 3px;
+}
+
+.price_val{
+    display: inline-block;
+}
+
+.price_btnG{
+    display: inline-block;
+    margin-left: 120px;
+}
+
+.total_price{
+    text-align: right;
+    color: lightgray;
+
+}
+
+.priceType, .price{
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.priceSale {
+    font-size: 14px;
+    color: lightgray;
+}
+
+.btn_minus, .btn_plus, .ticket_num{
+    marign: 0 auto;
+    padding: 0px;
+    width: 35px;
+    height: 35px;
+    border: #d4dadf 1px solid;
+    color: gray;
+    background-color: white;
+    float: left;
+    text-align: center;
+    font-size: 25px;
+}
+
+.ticket_num{
+    width: 45px;
+    font-size: 20px;
+}
+
+.btn_plus{
+    color: white;
+    background-color: #2DC700;
+    border: #2DC700 1px solid;
+}
+
+.reservation_info{
+    text-align: left;
+}
+
+.reservation_title,.term_title{
+    margin-top: 1px;
+    margin-bottom: 1px;
+    padding: 10px 20px 10px 20px;
+    background-color: white;
+    text-align: left;
+
+}
+
+.reservation_content, .term{
+    padding: 10px 20px 10px 20px;
+    background-color: white;
+}
+
+.reservation_info{
+    margin-top: 5px;
+}
+
+.title_info {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.right_text{
+    float: right;
+    font-size: 13px;
+    color: lightgray;
+}
+
+.check{
+    color: #2DC700;
+}
+
+.reservation_val{
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: gray;
+}
+
+.reservation_info_input{
+    width: 200px;
+}
+
+.re_title{
+    margin-right: 10px;
+}
+
+.term {
+    margin: 0px;
+    font-size: 13px;
+    color: gray;
+}
+
+.term_widthDiv {
+    width: 85%;
+    display: block;
+    margin: 0 auto;
+}
+
+#re_title{
+    margin-left: 15px;
+}
+
+
+.term_title{
+    text-align: left;
+    font-size: 15px;
+}
+
+.term_sub{
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.term_content{
+    text-align: left;
+    line-height: 140%;
+    background-color: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: lightgray 1px solid;
+}
+
+.term_content > div{
+    margin-bottom: 10px;
+}
+
+#reservation_submit{
+    margin: 10px;
+    /*background-color: #2DC700;*/
+    background-color: lightgray;
+    color: white;
+    width: 85%;
+    height: 40px;
+    border: 0px;
+    font-size: 15px;
+}
+
+

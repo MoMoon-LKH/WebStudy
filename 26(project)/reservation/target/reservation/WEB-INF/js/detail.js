@@ -13,8 +13,6 @@ $(document).ready(function () {
     var description = items.display[0].description;
     var images = items.images;
     var mapImage ="../../img_map/" + items.mapImage;
-    console.log(items);
-    console.log(images);
 
     var displayHTML = bindHead(items);
     var commentHTML = bindComment(items);

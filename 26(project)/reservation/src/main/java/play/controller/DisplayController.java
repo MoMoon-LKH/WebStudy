@@ -33,4 +33,9 @@ public class DisplayController {
         model.addAttribute("id", id);
         return "reservation";
     }
+
+    @GetMapping("/product")
+    public String getMain(){
+        return "products";
+    }
 }
