@@ -58,37 +58,40 @@
             <div class="term_and_condition">
                 <div class="term_title">
                     <span class="title_info">
-                        <input type="checkbox">이용자 약관 전체동의
+                        <input type="checkbox" id="term_check">이용자 약관 전체동의
                     </span>
                     <span class="right_text">필수동의</span>
                 </div>
                 <div class="term">
                     <div class="term_widthDiv">
-                        <div class="term_sub">
-                            <span class="term_subTitle">ㄴ 개인정보 수집 및 이용 동의</span>
-                            <span class="right_text">보기</span>
+                        <div class="term_container">
+                            <div class="term_sub">
+                                <span class="term_subTitle">ㄴ 개인정보 수집 및 이용 동의</span>
+                                <span class="glass" >보기</span>
+                            </div>
+                            <div class="term_content">
+                                <div>< 개인정보 수집 및 이용 동의 ></div>
+                                <div>1.수집 항목 : [필수]이름, 연락처, [선택] 이메일주소</div>
+                                <div>2.수집 및 이용목적: 사업자 회원과 예약이용자의 원할한 거래 진행, 고객상담, 불만처리
+                                 등 민원 처리, 분쟁조정 해결을 위한 기록보존, 네이버 예약 이용 후 리뷰작성</div>
+                            </div>
                         </div>
-                        <div class="term_content">
-                            <div>< 개인정보 수집 및 이용 동의 ></div>
-                            <div>1.수집 항목 : [필수]이름, 연락처, [선택] 이메일주소</div>
-                            <div>2.수집 및 이용목적: 사업자 회원과 예약이용자의 원할한 거래 진행, 고객상담, 불만처리
-                             등 민원 처리, 분쟁조정 해결을 위한 기록보존, 네이버 예약 이용 후 리뷰작성</div>
-                        </div>
-
-                        <div class="term_sub">
-                            <span class="term_subTitle">ㄴ 개인정보 제3자 제공 동의</span>
-                            <span class="right_text">보기</span>
-                        </div>
-                        <div class="term_content">
-                            <div>< 개인정보 수집 및 이용 동의 ></div>
-                            <div>1.수집 항목 : [필수]이름, 연락처, [선택] 이메일주소</div>
-                            <div>2.수집 및 이용목적: 사업자 회원과 예약이용자의 원할한 거래 진행, 고객상담, 불만처리
-                                등 민원 처리, 분쟁조정 해결을 위한 기록보존, 네이버 예약 이용 후 리뷰작성</div>
+                        <div class="term_container">
+                            <div class="term_sub">
+                                <span class="term_subTitle">ㄴ 개인정보 제3자 제공 동의</span>
+                                <span class="glass">보기</span>
+                            </div>
+                            <div class="term_content">
+                                <div>< 개인정보 제3자 제공 동의 ></div>
+                                <div>1.수집 항목 : [필수]이름, 연락처, [선택] 이메일주소</div>
+                                <div>2.수집 및 이용목적: 사업자 회원과 예약이용자의 원할한 거래 진행, 고객상담, 불만처리
+                                    등 민원 처리, 분쟁조정 해결을 위한 기록보존, 네이버 예약 이용 후 리뷰작성</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="submit" id="reservation_submit" disabled>예약하기</button>
+            <button type="submit" id="reservation_submit" disabled="disabled">예약하기</button>
     </form>
 
 </div>
@@ -132,16 +135,16 @@
         <li class="price_content">
             <div class="price_val">
                 <div class="priceType">{{priceTypeName}}</div>
-                <div class="price">{{price}}원</div>
+                <div class="price"><span class="onePrice">{{price}}</span><span>원</span></div>
                 <div class="priceSale">{{price}}원 {{discountRate}}% 할인가</div>
             </div>
             <div class="price_btnG">
-                <div>
-                    <button class="btn_minus">-</button>
-                    <button class="ticket_num" disabled>0</button>
-                    <button class="btn_plus">+</button>
+                <div class="buttons">
+                    <button type="button" class="btn_minus">-</button>
+                    <button type="button" class="ticket_num" value="0" disabled>0</button>
+                    <button type="button" class="btn_plus">+</button>
                 </div>
-                <div class="total_price">0원</div>
+                <div class="total_price"><span class="total_priceVal">0</span><span>원</span></div>
                 <input type="hidden" name="total_price" id="totalPrice_input"/>
             </div>
         </li>

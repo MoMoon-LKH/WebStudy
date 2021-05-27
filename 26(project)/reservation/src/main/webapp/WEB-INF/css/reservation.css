@@ -123,11 +123,15 @@ ul{
     width: 45px;
     font-size: 20px;
 }
+.btn_minus{
+    cursor: pointer;
+}
 
 .btn_plus{
     color: white;
     background-color: #2DC700;
     border: #2DC700 1px solid;
+    cursor: pointer;
 }
 
 .reservation_info{
@@ -215,6 +219,7 @@ ul{
     padding: 10px;
     margin-bottom: 10px;
     border: lightgray 1px solid;
+    display: none;
 }
 
 .term_content > div{
@@ -230,6 +235,16 @@ ul{
     height: 40px;
     border: 0px;
     font-size: 15px;
+    cursor: pointer;
+}
+
+.glass{
+    border-bottom: lightgray 1px solid;
+    cursor: pointer;
+    float: right;
+    font-size: 13px;
+    color: lightgray;
+
 }
 
 
