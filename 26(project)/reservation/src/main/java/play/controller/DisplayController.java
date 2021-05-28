@@ -34,7 +34,7 @@ public class DisplayController {
         return "reservation";
     }
 
-    @GetMapping("/product")
+    @GetMapping("/main")
     public String getMain(){
         return "products";
     }

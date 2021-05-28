@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="/reservationInfo" method="post">
+    <form action="/reservations" method="post">
         <input type="hidden" name="id" id="idValue" value="${id}">
         <div class="product_info">
 
@@ -91,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" id="reservation_submit" disabled="disabled">예약하기</button>
+            <button type="submit" id="reservation_submit" disabled="disabled" >예약하기</button>
     </form>
 
 </div>
@@ -134,7 +134,10 @@
     {{#each prices}}
         <li class="price_content">
             <div class="price_val">
-                <div class="priceType">{{priceTypeName}}</div>
+                {{#priceTypes priceTypeName}}
+                    {{priceTypeName}}
+                {{/priceTypes}}
+                <input type="hidden" class="priceTypeName" name="priceType[]" value={{priceTypeName}}>
                 <div class="price"><span class="onePrice">{{price}}</span><span>원</span></div>
                 <div class="priceSale">{{price}}원 {{discountRate}}% 할인가</div>
             </div>
@@ -142,10 +145,10 @@
                 <div class="buttons">
                     <button type="button" class="btn_minus">-</button>
                     <button type="button" class="ticket_num" value="0" disabled>0</button>
+                    <input type="hidden" class="ticketNum_input" name="ticketNum[]" >
                     <button type="button" class="btn_plus">+</button>
                 </div>
                 <div class="total_price"><span class="total_priceVal">0</span><span>원</span></div>
-                <input type="hidden" name="total_price" id="totalPrice_input"/>
             </div>
         </li>
         <div class="border"></div>

@@ -13,7 +13,8 @@ $(document).ready(function () {
     price["prices"] = items.itemPrices;
     var image = "../../img/" + items.image;
 
-    price.prices = getPrices(price.prices);
+    handlebarHelper();
+    /*price.prices = getPrices(price.prices);*/
 
     var priceHTML = bindPrice(price);
     var productHTML = bindProduct(items.display[0]);
@@ -51,7 +52,25 @@ function initialAjax(id){
     return items;
 }
 
-function getPrices(prices){
+function handlebarHelper(){
+    Handlebars.registerHelper("priceTypes", function (priceTypeName) {
+        switch (priceTypeName) {
+            case "A" :
+                return "<div className='priceType'>성인</div>"
+                break;
+            case "B":
+                return "<div className='priceType'>유아</div>";
+                break;
+            case "Y":
+                return "<div className='priceType'>청소년</div>";
+                break;
+            default :
+                return "<div className='priceType'>기타</div>"
+        }
+    });
+}
+
+/*function getPrices(prices){
 
     for (var i = 0; i < prices.length; i++) {
         prices[i] = getPriceType(prices[i]);
@@ -75,7 +94,7 @@ function getPriceType(price) {
             break;
     }
     return price;
-}
+}*/
 
 function setBackground(imageSrc) {
 
@@ -131,11 +150,11 @@ function setGlasses(){
 
 function getNumBtn(){
 
-
     $('.btn_minus').on('click', function () {
         var num = $(this).closest(".buttons").find(".ticket_num");
         var totalPrice = $(this).closest(".price_btnG").find(".total_priceVal");
         var price = $(this).closest(".price_content").find(".onePrice");
+        var inputNum = $(this).closest(".buttons").find(".ticketNum_input");
         var totalPriceText = $(this).closest(".price_btnG").find(".total_price");
 
         var numVal = parseInt(num.text()) - 1;
@@ -169,6 +188,7 @@ function getNumBtn(){
 
         num.text(numVal);
         totalPrice.text(totalPriceVal);
+        inputNum.attr('value', numVal);
     });
 
     $('.btn_plus').on('click', function () {
@@ -176,6 +196,7 @@ function getNumBtn(){
         var minus = $(this).closest(".buttons").find(".btn_minus");
         var totalPrice = $(this).closest(".price_btnG").find(".total_priceVal");
         var totalPriceText = $(this).closest(".price_btnG").find(".total_price");
+        var inputNum = $(this).closest(".buttons").find(".ticketNum_input");
         var price = $(this).closest(".price_content").find(".onePrice");
 
         var numVal = parseInt(num.text()) + 1;
@@ -199,6 +220,7 @@ function getNumBtn(){
         num.text(numVal);
         totalPrice.text(totalPriceVal);
         totalTicketNum(+1);
+        inputNum.attr('value', numVal);
     });
 }
 
