@@ -46,7 +46,7 @@
     <div class="header">
         <h2 class="logo">
             <a class="head_img" href="/main"><img class="head_img" src="../../img/spr_title.png"/> </a>
-            <a class="head_my" href=""><span class="myInfo">예약 확인</span></a>
+            <a class="head_my" href="/loginForm"><span class="myInfo">예약 확인</span></a>
         </h2>
         <div class="emptySpace"></div>
         <div class="imgNum"><span id="imgStart"></span><span>/</span><span id="imgLength"></span></div>

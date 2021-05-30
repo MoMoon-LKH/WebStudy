@@ -8,9 +8,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>예약 확인</title>
 </head>
 <body>
+<div class="container">
+    <form method="post" action="/login">
+        <input id="emailInput" name="email">
+        <button type="submit">확인</button>
+    </form>
+
+</div>
 
 </body>
 </html>
