@@ -4,7 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import play.dto.ReservationInfo;
+import play.dto.ReservationPrice;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -18,13 +21,24 @@ public class ReservationInfoController {
                                  @RequestParam(name = "tel") String tel,
                                  @RequestParam(name = "email") String email,
                                  @RequestParam(name = "regDate") String regDate){
-        System.out.println("id = " + id);
-        System.out.println("priceType = " + priceType);
-        System.out.println("ticketNum = " + ticketNum);
-        System.out.println("name = " + name);
-        System.out.println("tel = " + tel);
-        System.out.println("email = " + email);
-        System.out.println("regDate = " + regDate);
+
+        ReservationInfo reservationInfo = new ReservationInfo();
+        reservationInfo.setDisplayInfoId(id);
+        reservationInfo.setReservationName(name);
+        reservationInfo.setReservationTel(tel);
+        reservationInfo.setReservationEmail(email);
+        reservationInfo.setReservationDate(regDate);
+
+        List<ReservationPrice> list = new ArrayList<>();
+        for (int i = 0; i < priceType.size(); i++) {
+            ReservationPrice reservationPrice = new ReservationPrice();
+            reservationPrice.setPriceTypeName(priceType.get(i));
+            reservationPrice.setCount(ticketNum.get(i));
+            list.add(reservationPrice);
+        }
+
+
+
         return "redirect:/main";
     }
 

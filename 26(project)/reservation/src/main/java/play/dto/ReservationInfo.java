@@ -9,6 +9,10 @@ public class ReservationInfo {
     private String reservationTel;
     private String reservationEmail;
     private String reservationDate;
+    private int cancelFlag;
+    private String createDate;
+    private String modifyDate;
+
 
     public int getProductId() {
         return productId;
@@ -58,4 +62,42 @@ public class ReservationInfo {
         this.reservationDate = reservationDate;
     }
 
+    public int getCancelFlag() {
+        return cancelFlag;
+    }
+
+    public void setCancelFlag(int cancelFlag) {
+        this.cancelFlag = cancelFlag;
+    }
+
+    public String getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getModifyDate() {
+        return modifyDate;
+    }
+
+    public void setModifyDate(String modifyDate) {
+        this.modifyDate = modifyDate;
+    }
+
+    @Override
+    public String toString() {
+        return "ReservationInfo{" +
+                "productId=" + productId +
+                ", displayInfoId=" + displayInfoId +
+                ", reservationName='" + reservationName + '\'' +
+                ", reservationTel='" + reservationTel + '\'' +
+                ", reservationEmail='" + reservationEmail + '\'' +
+                ", reservationDate='" + reservationDate + '\'' +
+                ", cancelFlag=" + cancelFlag +
+                ", createDate='" + createDate + '\'' +
+                ", modifyDate='" + modifyDate + '\'' +
+                '}';
+    }
 }
