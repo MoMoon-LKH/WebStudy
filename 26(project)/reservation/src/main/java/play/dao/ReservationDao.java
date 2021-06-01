@@ -4,6 +4,7 @@ import com.mysql.cj.result.Row;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -23,7 +24,7 @@ public class ReservationDao {
     private SimpleJdbcInsert insert;
     private RowMapper<ReservationInfo> reservationInfoMapper = BeanPropertyRowMapper.newInstance(ReservationInfo.class);
     private RowMapper<ReservationPrice> priceMapper = BeanPropertyRowMapper.newInstance(ReservationPrice.class);
-
+    private RowMapper<ReservationPriceEntity> priceEntity = BeanPropertyRowMapper.newInstance(ReservationPriceEntity.class);
 
     public ReservationDao(DataSource dataSource) {
         this.jdbc = new NamedParameterJdbcTemplate(dataSource);
@@ -32,11 +33,9 @@ public class ReservationDao {
                 .usingGeneratedKeyColumns("id");
     }
 
-    public int insertReservationInfo(ReservationInfo ri) {
-        Map<String, Integer> params = new HashMap<>();
+    public int insertReservationInfo(ReservationInfo ri, int product_id) {
 
-        params.put("id", ri.getDisplayInfoId());
-        ri.setProductId(jdbc.queryForObject(SELECT_PRODUCT_ID, params, Integer.class));
+        ri.setProductId(product_id);
 
         List<String> date = dateSet();
         ri.setCreateDate(date.get(0));
@@ -47,14 +46,20 @@ public class ReservationDao {
     }
 
     public int insertReservationPrice(int reservationId, int productId,List<ReservationPrice> reservationPrice) {
-        ReservationPriceEntity res = new ReservationPriceEntity();
         int countNum = 0;
 
         for (int i = 0; i < reservationPrice.size(); i++) {
             if (reservationPrice.get(i).getCount() > 0) {
-                //res.setProduct_price_id(jdbc.query());
-                res.setCount(reservationPrice.get(i).getCount());
+                SqlParameterSource param = new MapSqlParameterSource()
+                        .addValue("product_id", productId)
+                        .addValue("price_type", reservationPrice.get(i).getPriceTypeName());
+                int priceId = jdbc.queryForObject(SELECT_PRODUCT_PRICE_ID, param, Integer.class);
 
+                Map<String, Integer> params = new HashMap<>();
+                params.put("reservation_info_id", reservationId);
+                params.put("product_price_id", priceId);
+                params.put("count", reservationPrice.get(i).getCount());
+                jdbc.update(INSERT_RESERVATION_PRICE, params);
                 countNum++;
             }
         }
@@ -72,6 +77,12 @@ public class ReservationDao {
         list.add(create);
         list.add(modify);
         return list;
+    }
+
+    public int getProductId(int id){
+        Map<String, Integer> params = new HashMap<>();
+        params.put("id", id);
+        return jdbc.queryForObject(SELECT_PRODUCT_ID, params, Integer.class);
     }
 
 }

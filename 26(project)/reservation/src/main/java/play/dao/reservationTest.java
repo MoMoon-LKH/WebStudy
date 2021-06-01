@@ -4,6 +4,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import play.config.ApplicationConfig;
 import play.dto.ReservationInfo;
+import play.dto.ReservationPrice;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class reservationTest {
     public static void main(String[] args) {
@@ -17,8 +21,25 @@ public class reservationTest {
         ri.setReservationEmail("naver@naver.com");
         ri.setReservationDate("2021.06.03");
 
-        int id = dao.insertReservationInfo(ri);
+        int productId = dao.getProductId(ri.getDisplayInfoId());
+
+        int id = dao.insertReservationInfo(ri, productId);
         System.out.println("id = " + id);
 
+        List<ReservationPrice> list = new ArrayList<>();
+        ReservationPrice rs = new ReservationPrice();
+        rs.setPriceTypeName("A");
+        rs.setPrice("6000");
+        rs.setCount(3);
+        list.add(rs);
+
+        ReservationPrice rs2 = new ReservationPrice();
+        rs2.setPriceTypeName("Y");
+        rs2.setPrice("3000");
+        rs2.setCount(4);
+        list.add(rs2);
+
+        int num = dao.insertReservationPrice(id, 1, list);
+        System.out.println("num = " + num);
     }
 }
