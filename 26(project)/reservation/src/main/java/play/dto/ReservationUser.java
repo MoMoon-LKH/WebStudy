@@ -1,8 +1,6 @@
 package play.dto;
 
-import java.util.List;
-
-public class ReservationInfo {
+public class ReservationUser {
     private int id;
     private int productId;
     private int displayInfoId;
@@ -13,24 +11,6 @@ public class ReservationInfo {
     private int cancelFlag;
     private String createDate;
     private String modifyDate;
-    private List<ReservationPrice> prices;
-
-    public ReservationInfo(){
-
-    }
-
-    public ReservationInfo(ReservationUser user){
-        this.id = user.getId();
-        this.productId = user.getProductId();
-        this.displayInfoId = user.getDisplayInfoId();
-        this.reservationName = user.getReservationName();
-        this.reservationTel = user.getReservationTel();
-        this.reservationEmail = user.getReservationEmail();
-        this.reservationDate = user.getReservationDate();
-        this.cancelFlag = user.getCancelFlag();
-        this.createDate = user.getCreateDate();
-        this.modifyDate = user.getModifyDate();
-    }
 
     public int getId() {
         return id;
@@ -110,30 +90,5 @@ public class ReservationInfo {
 
     public void setModifyDate(String modifyDate) {
         this.modifyDate = modifyDate;
-    }
-
-    public List<ReservationPrice> getPrices() {
-        return prices;
-    }
-
-    public void setPrices(List<ReservationPrice> prices) {
-        this.prices = prices;
-    }
-
-    @Override
-    public String toString() {
-        return "ReservationInfo{" +
-                "id=" + id +
-                ", productId=" + productId +
-                ", displayInfoId=" + displayInfoId +
-                ", reservationName='" + reservationName + '\'' +
-                ", reservationTel='" + reservationTel + '\'' +
-                ", reservationEmail='" + reservationEmail + '\'' +
-                ", reservationDate='" + reservationDate + '\'' +
-                ", cancelFlag=" + cancelFlag +
-                ", createDate='" + createDate + '\'' +
-                ", modifyDate='" + modifyDate + '\'' +
-                ", prices=" + prices +
-                '}';
     }
 }

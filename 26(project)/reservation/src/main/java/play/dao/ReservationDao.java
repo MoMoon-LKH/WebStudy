@@ -22,7 +22,7 @@ import static play.dao.ReservationSqls.*;
 public class ReservationDao {
     private NamedParameterJdbcTemplate jdbc;
     private SimpleJdbcInsert insert;
-    private RowMapper<ReservationInfo> reservationInfoMapper = BeanPropertyRowMapper.newInstance(ReservationInfo.class);
+    private RowMapper<ReservationUser> userMapper = BeanPropertyRowMapper.newInstance(ReservationUser.class);
     private RowMapper<ReservationPrice> priceMapper = BeanPropertyRowMapper.newInstance(ReservationPrice.class);
     private RowMapper<ReservationPriceEntity> priceEntity = BeanPropertyRowMapper.newInstance(ReservationPriceEntity.class);
 
@@ -83,6 +83,48 @@ public class ReservationDao {
         Map<String, Integer> params = new HashMap<>();
         params.put("id", id);
         return jdbc.queryForObject(SELECT_PRODUCT_ID, params, Integer.class);
+    }
+
+    public String getEmail(String email) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("email", email);
+        try {
+            return jdbc.queryForObject(SELECT_RESERVATION_EMAIL, params, String.class);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public List<ReservationUser> getReservationUser(String email) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("email", email);
+        return jdbc.query(SELECT_RESERVATION_USER, params, userMapper);
+    }
+
+    public List<ReservationPrice> getReservationPrice(int id) {
+        Map<String, Integer> params = new HashMap<>();
+        params.put("id", id);
+        return jdbc.query(SELECT_RESERVATION_PRICE, params, priceMapper);
+    }
+
+    public List<ReservationInfo> getReservationInfo(String email) {
+        List<ReservationUser> list = getReservationUser(email);
+        List<ReservationInfo> reservation = new ArrayList<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            ReservationInfo info = defineInfo(list.get(i));
+            List<ReservationPrice> prices = getReservationPrice(info.getId());
+            info.setPrices(prices);
+            reservation.add(info);
+        }
+
+        return reservation;
+    }
+
+    public ReservationInfo defineInfo(ReservationUser user) {
+        ReservationInfo reservationInfo = new ReservationInfo(user);
+
+        return reservationInfo;
     }
 
 }

@@ -6,6 +6,8 @@ import play.dto.Display;
 import play.dto.ItemPrice;
 import play.service.DisplayService;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,5 +36,11 @@ public class ReservationController {
         return map;
     }
 
+    @GetMapping("/myReservation")
+    public Map<String, Object> getMyReservation() {
+        Map<String, Object> map = new HashMap<>();
 
+
+        return map;
+    }
 }

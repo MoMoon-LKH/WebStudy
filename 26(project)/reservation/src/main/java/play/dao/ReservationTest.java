@@ -5,15 +5,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import play.config.ApplicationConfig;
 import play.dto.ReservationInfo;
 import play.dto.ReservationPrice;
+import play.dto.ReservationUser;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class reservationTest {
+public class ReservationTest {
     public static void main(String[] args) {
         ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
         ReservationDao dao = ac.getBean(ReservationDao.class);
-
+/*
         ReservationInfo ri = new ReservationInfo();
         ri.setDisplayInfoId(1);
         ri.setReservationName("문박순");
@@ -40,6 +41,9 @@ public class reservationTest {
         list.add(rs2);
 
         int num = dao.insertReservationPrice(id, 1, list);
-        System.out.println("num = " + num);
+        System.out.println("num = " + num);*/
+
+        List<ReservationInfo> rs = dao.getReservationInfo("naver@naver.com");
+        System.out.println("rs = " + rs);
     }
 }

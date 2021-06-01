@@ -20,7 +20,17 @@ public class ReservationImpl implements ReservationService {
         int productId = reservationDao.getProductId(reservationInfo.getDisplayInfoId());
         int reservationInfoId = reservationDao.insertReservationInfo(reservationInfo, productId);
         reservationDao.insertReservationPrice(reservationInfoId, productId, prices);
+        
+    }
 
+    @Override
+    public String getEmail(String email) {
+        String get = reservationDao.getEmail(email);
+        return get;
+    }
 
+    @Override
+    public List<ReservationInfo> getReservationInfo(String email) {
+        return reservationDao.getReservationInfo(email);
     }
 }

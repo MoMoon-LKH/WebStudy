@@ -2,13 +2,15 @@ package play.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import play.dto.ReservationInfo;
 import play.dto.ReservationPrice;
 import play.service.ReservationService;
 
+import javax.net.ssl.HttpsURLConnection;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,13 +21,13 @@ public class ReservationInfoController {
     ReservationService reservationService;
 
     @PostMapping("/reservations")
-    public String setReservation(@RequestParam(name = "id" , required = true) int id,
+    public String setReservation(@RequestParam(name = "id", required = true) int id,
                                  @RequestParam(name = "priceType[]") List<String> priceType,
                                  @RequestParam(name = "ticketNum[]") List<Integer> ticketNum,
                                  @RequestParam(name = "name") String name,
                                  @RequestParam(name = "tel") String tel,
                                  @RequestParam(name = "email") String email,
-                                 @RequestParam(name = "regDate") String regDate){
+                                 @RequestParam(name = "regDate") String regDate) {
 
         ReservationInfo reservationInfo = new ReservationInfo();
         reservationInfo.setDisplayInfoId(id);
@@ -47,9 +49,5 @@ public class ReservationInfoController {
         return "redirect:/main";
     }
 
-    @GetMapping("/loginForm")
-    public String loginForm(){
 
-        return "loginForm";
-    }
 }
