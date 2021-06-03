@@ -20,7 +20,7 @@ public class ReservationImpl implements ReservationService {
         int productId = reservationDao.getProductId(reservationInfo.getDisplayInfoId());
         int reservationInfoId = reservationDao.insertReservationInfo(reservationInfo, productId);
         reservationDao.insertReservationPrice(reservationInfoId, productId, prices);
-        
+
     }
 
     @Override
