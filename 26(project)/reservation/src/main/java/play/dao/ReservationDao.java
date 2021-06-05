@@ -32,15 +32,15 @@ public class ReservationDao {
                 .usingGeneratedKeyColumns("id");
     }
 
-    public int insertReservationInfo(ReservationInfo ri, int product_id) {
+    public int insertReservationInfo(ReservationUser ru, int product_id) {
 
-        ri.setProductId(product_id);
+        ru.setProductId(product_id);
 
         List<String> date = dateSet();
-        ri.setCreateDate(date.get(0));
-        ri.setModifyDate(date.get(1));
+        ru.setCreateDate(date.get(0));
+        ru.setModifyDate(date.get(1));
 
-        SqlParameterSource param = new BeanPropertySqlParameterSource(ri);
+        SqlParameterSource param = new BeanPropertySqlParameterSource(ru);
         return insert.executeAndReturnKey(param).intValue();
     }
 
@@ -133,6 +133,12 @@ public class ReservationDao {
         map.put("id", displayId);
         List<Display> displays = jdbc.query(DisplaySqls.SELECT_DISPLAY, map, disMap);
         return displays.get(0);
+    }
+
+    public int updateCancelFlag(int reservationId) {
+        Map<String, Integer> params = new HashMap<>();
+        params.put("id", reservationId);
+        return jdbc.update(UPDATE_CANCEL_FLAG, params);
     }
 
 }

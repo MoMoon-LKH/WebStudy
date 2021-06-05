@@ -64,37 +64,19 @@ function handlebarHelper(){
             case "Y":
                 return "<div className='priceType'>청소년</div>";
                 break;
+            case "V":
+                return "<div className='priceType'>VIP석</div>";
+            case "R":
+                return "<div className='priceType'>R석</div>";
+            case "S":
+                return "<div className='priceType'>S석</div>";
+            case "A":
+                return "<div className='priceType'>A석</div>";
             default :
                 return "<div className='priceType'>기타</div>"
         }
     });
 }
-
-/*function getPrices(prices){
-
-    for (var i = 0; i < prices.length; i++) {
-        prices[i] = getPriceType(prices[i]);
-
-    }
-    return prices;
-}
-
-function getPriceType(price) {
-    switch (price.priceTypeName) {
-        case "A" :
-            price.priceTypeName = "성인";
-            break;
-        case "B":
-            price.priceTypeName = "유아";
-            break;
-        case "Y":
-            price.priceTypeName = "청소년";
-            break;
-        default :
-            break;
-    }
-    return price;
-}*/
 
 function setBackground(imageSrc) {
 

@@ -11,6 +11,7 @@ Handlebars.registerHelper('ifCond', function(v1, v2, options) {
 $(document).ready(function () {
     var email = $("#email").text();
     initialAjax(email);
+
 });
 
 function initialAjax(email){
@@ -79,7 +80,6 @@ function initialItem(item) {
         price: price,
         cancelFlag: item.cancelFlag
     }
-    console.log(obj);
 
     return obj;
 }
@@ -153,3 +153,35 @@ function getPrice(prices) {
 
     return total.toLocaleString();
 }
+
+function cancelBtn(btn) {
+    var id = btn.closest(".items_content").find('.item_number').text();
+    var email = $("#email").text();
+
+    $('#reservation_items').html('');
+    $('#finish_items').html('');
+    $('#cancel_items').html('');
+
+    $.ajax({
+        type: 'POST',
+        url: "reservationInfo/cancel",
+        data: {"reservationId" : id,
+                "email" : email},
+        success: function (data) {
+            items = data;
+            addItems(items.reservationInfo);
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+
+}
+
+function commentBtn(btn) {
+    var id = btn.closest(".items_content").find('.item_number').text();
+    var email = $("#email").text();
+    console.log(id);
+}
+
+

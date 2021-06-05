@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import play.dto.ReservationInfo;
 import play.dto.ReservationPrice;
+import play.dto.ReservationUser;
 import play.service.ReservationService;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -29,22 +30,24 @@ public class ReservationInfoController {
                                  @RequestParam(name = "email") String email,
                                  @RequestParam(name = "regDate") String regDate) {
 
-        ReservationInfo reservationInfo = new ReservationInfo();
-        reservationInfo.setDisplayInfoId(id);
-        reservationInfo.setReservationName(name);
-        reservationInfo.setReservationTel(tel);
-        reservationInfo.setReservationEmail(email);
-        reservationInfo.setReservationDate(regDate);
+        ReservationUser reservationUser = new ReservationUser();
+        reservationUser.setDisplayInfoId(id);
+        reservationUser.setReservationName(name);
+        reservationUser.setReservationTel(tel);
+        reservationUser.setReservationEmail(email);
+        reservationUser.setReservationDate(regDate);
 
         List<ReservationPrice> list = new ArrayList<>();
         for (int i = 0; i < priceType.size(); i++) {
-            ReservationPrice reservationPrice = new ReservationPrice();
-            reservationPrice.setPriceTypeName(priceType.get(i));
-            reservationPrice.setCount(ticketNum.get(i));
-            list.add(reservationPrice);
+            if (ticketNum.get(i) != 0) {
+                ReservationPrice reservationPrice = new ReservationPrice();
+                reservationPrice.setPriceTypeName(priceType.get(i));
+                reservationPrice.setCount(ticketNum.get(i));
+                list.add(reservationPrice);
+            }
         }
 
-        reservationService.setReservationInfo(reservationInfo, list);
+        reservationService.setReservationInfo(reservationUser, list);
 
         return "redirect:/main";
     }

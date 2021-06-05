@@ -145,7 +145,7 @@
                 <div class="buttons">
                     <button type="button" class="btn_minus">-</button>
                     <button type="button" class="ticket_num" value="0" disabled>0</button>
-                    <input type="hidden" class="ticketNum_input" name="ticketNum[]" >
+                    <input type="hidden" class="ticketNum_input" name="ticketNum[]" value="0" >
                     <button type="button" class="btn_plus">+</button>
                 </div>
                 <div class="total_price"><span class="total_priceVal">0</span><span>원</span></div>

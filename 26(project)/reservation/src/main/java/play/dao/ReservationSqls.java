@@ -29,4 +29,7 @@ public class ReservationSqls {
     public static final String SELECT_RESERVATION_EMAIL =
             "select distinct reservation_email from reservation_info " +
                     "where reservation_email = :email";
+
+    public static final String UPDATE_CANCEL_FLAG =
+            "update reservation_info set cancel_flag = 1 where id = :id";
 }

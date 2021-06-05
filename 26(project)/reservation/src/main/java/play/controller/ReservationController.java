@@ -50,4 +50,18 @@ public class ReservationController {
 
         return map;
     }
+
+    @PostMapping("/cancel")
+    public Map<String, Object> setCancel(@RequestParam(name = "reservationId") int reservationId,
+                                         @RequestParam(name = "email") String email) {
+
+        reservationService.updateCancelFlag(reservationId);
+
+        Map<String, Object> map = new HashMap<>();
+        List<ReservationInfo> reservationInfos = reservationService.getReservationInfo(email);
+
+        map.put("reservationInfo", reservationInfos);
+
+        return map;
+    }
 }

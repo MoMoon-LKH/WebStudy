@@ -40,26 +40,33 @@
             </ul>
         </div>
     </div>
+    <div class="list_container">
+        <div class="list">
+            <div class="reservation_title">
+                <div class="title_name">예약 확정</div>
+            </div>
+            <ul id="reservation_items">
 
-    <div class="reservation">
-        <div class="re_title">예약 확정</div>
-        <ul id="reservation_items">
+            </ul>
+        </div>
 
-        </ul>
-    </div>
+        <div class="list">
+            <div class="list_title">
+                <div class="title_name">이용 완료</div>
+            </div>
+            <ul id="finish_items">
 
-    <div class="finish">
-        <div class="finish_title">이용 완료</div>
-        <ul id="finish_items">
+            </ul>
+        </div>
 
-        </ul>
-    </div>
+        <div class="list">
+            <div class="list_title">
+                <div class="title_name">취소된 예약</div>
+            </div>
+            <ul id="cancel_items">
 
-    <div class="cancel">
-        <div class="cancel_title">취소된 예약</div>
-        <ul id="cancel_items">
-
-        </ul>
+            </ul>
+        </div>
     </div>
 
     <footer class="footer">
@@ -80,30 +87,35 @@
             <div class="items_number">No.<span class="item_number">{{id}}</span></div>
             <div class="item_description">{{description}}</div>
         </div>
-        <div class="items_content">
-            <div class="items_period">
-                <span class="period_title">일정</span>
-                <span class="item_period">{{date}}</span></div>
-            <div class="items_breakdown">
-                <span class="breakdown_title">내역</span>
-                <span class="item_breakdown">{{breakdown}}</span></div>
-            <div class="items_company">
-                <span class="company_title">장소</span>
-                <span class="item_company">{{placeLot}}</span></div>
-            <div class="items_company">
-                <span class="company_title">업체</span>
-                <span class="item_company">{{placeName}}</span></div>
+        <div class="item">
+            <div class="item_con">
+                <span class="item_title">일정</span>
+                <span class="item_content">{{date}}</span>
+            </div>
+            <div class="item_con">
+                <span class="item_title">내역</span>
+                <span class="item_content">{{breakdown}}</span>
+            </div>
+            <div class="item_con">
+                <span class="item_title">장소</span>
+                <span class="item_content">{{placeLot}}</span>
+            </div>
+            <div class="item_con">
+                <span class="item_title">업체</span>
+                <span class="item_content">{{placeName}}</span>
+            </div>
         </div>
         <div class="items_price">
             <div class="price_title">결제 예정금액</div>
             <div class="item_price_div"><span class="item_price">{{price}}</span> 원</div>
         </div>
+        <div class="clear_div"></div>
         <div class="btn">
             {{#ifCond cancelFlag 0}}
-                <button class="cancel_btn">취소</button>
+                <button class="cancel_btn" type="button" onclick="cancelBtn($(this))">취소</button>
             {{/ifCond}}
             {{#ifCond cancelFlag 2}}
-                <button class="finish_btn">예매자 리뷰 남기기</button>
+                <button class="finish_btn" type="button" onclick="commentBtn($(this))">예매자 리뷰 남기기</button>
             {{/ifCond}}
         </div>
     </div>

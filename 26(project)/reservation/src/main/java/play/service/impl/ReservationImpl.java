@@ -6,6 +6,7 @@ import play.dao.DisplayDao;
 import play.dao.ReservationDao;
 import play.dto.ReservationInfo;
 import play.dto.ReservationPrice;
+import play.dto.ReservationUser;
 import play.service.ReservationService;
 
 import java.util.List;
@@ -20,9 +21,9 @@ public class ReservationImpl implements ReservationService {
     DisplayDao displayDao;
 
     @Override
-    public void setReservationInfo(ReservationInfo reservationInfo, List<ReservationPrice> prices) {
-        int productId = reservationDao.getProductId(reservationInfo.getDisplayInfoId());
-        int reservationInfoId = reservationDao.insertReservationInfo(reservationInfo, productId);
+    public void setReservationInfo(ReservationUser reservationUser, List<ReservationPrice> prices) {
+        int productId = reservationDao.getProductId(reservationUser.getDisplayInfoId());
+        int reservationInfoId = reservationDao.insertReservationInfo(reservationUser, productId);
         reservationDao.insertReservationPrice(reservationInfoId, productId, prices);
 
     }
@@ -36,5 +37,10 @@ public class ReservationImpl implements ReservationService {
     @Override
     public List<ReservationInfo> getReservationInfo(String email) {
         return reservationDao.getReservationInfo(email);
+    }
+
+    @Override
+    public void updateCancelFlag(int reservationId) {
+        reservationDao.updateCancelFlag(reservationId);
     }
 }

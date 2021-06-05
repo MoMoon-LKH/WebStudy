@@ -44,8 +44,9 @@ public class ReservationTest {
         int num = dao.insertReservationPrice(id, 1, list);
         System.out.println("num = " + num);*/
 
-        List<ReservationInfo> rs = dao.getReservationInfo("naver@naver.com");
-        System.out.println("rs = " + rs);
+        int count = dao.updateCancelFlag(22);
+        System.out.println("count = " + count);
+
 
     }
 }
