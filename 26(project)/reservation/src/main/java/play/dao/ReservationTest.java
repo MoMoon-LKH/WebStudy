@@ -3,6 +3,7 @@ package play.dao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import play.config.ApplicationConfig;
+import play.dto.Display;
 import play.dto.ReservationInfo;
 import play.dto.ReservationPrice;
 import play.dto.ReservationUser;
@@ -45,5 +46,6 @@ public class ReservationTest {
 
         List<ReservationInfo> rs = dao.getReservationInfo("naver@naver.com");
         System.out.println("rs = " + rs);
+
     }
 }

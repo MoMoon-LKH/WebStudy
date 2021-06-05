@@ -14,6 +14,8 @@ public class ReservationInfo {
     private String createDate;
     private String modifyDate;
     private List<ReservationPrice> prices;
+    private Display display;
+
 
     public ReservationInfo(){
 
@@ -120,6 +122,14 @@ public class ReservationInfo {
         this.prices = prices;
     }
 
+    public Display getDisplay() {
+        return display;
+    }
+
+    public void setDisplay(Display display) {
+        this.display = display;
+    }
+
     @Override
     public String toString() {
         return "ReservationInfo{" +
@@ -134,6 +144,7 @@ public class ReservationInfo {
                 ", createDate='" + createDate + '\'' +
                 ", modifyDate='" + modifyDate + '\'' +
                 ", prices=" + prices +
+                ", display=" + display +
                 '}';
     }
 }

@@ -24,7 +24,6 @@ public class ReservationDao {
     private SimpleJdbcInsert insert;
     private RowMapper<ReservationUser> userMapper = BeanPropertyRowMapper.newInstance(ReservationUser.class);
     private RowMapper<ReservationPrice> priceMapper = BeanPropertyRowMapper.newInstance(ReservationPrice.class);
-    private RowMapper<ReservationPriceEntity> priceEntity = BeanPropertyRowMapper.newInstance(ReservationPriceEntity.class);
 
     public ReservationDao(DataSource dataSource) {
         this.jdbc = new NamedParameterJdbcTemplate(dataSource);
@@ -115,6 +114,7 @@ public class ReservationDao {
             ReservationInfo info = defineInfo(list.get(i));
             List<ReservationPrice> prices = getReservationPrice(info.getId());
             info.setPrices(prices);
+            info.setDisplay(getDisplay(info.getDisplayInfoId()));
             reservation.add(info);
         }
 
@@ -125,6 +125,14 @@ public class ReservationDao {
         ReservationInfo reservationInfo = new ReservationInfo(user);
 
         return reservationInfo;
+    }
+
+    public Display getDisplay(int displayId) {
+        RowMapper<Display> disMap = BeanPropertyRowMapper.newInstance(Display.class);
+        Map<String, Integer> map = new HashMap<>();
+        map.put("id", displayId);
+        List<Display> displays = jdbc.query(DisplaySqls.SELECT_DISPLAY, map, disMap);
+        return displays.get(0);
     }
 
 }

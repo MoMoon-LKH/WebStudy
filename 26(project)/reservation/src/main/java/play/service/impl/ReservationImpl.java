@@ -2,6 +2,7 @@ package play.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import play.dao.DisplayDao;
 import play.dao.ReservationDao;
 import play.dto.ReservationInfo;
 import play.dto.ReservationPrice;
@@ -14,6 +15,9 @@ public class ReservationImpl implements ReservationService {
 
     @Autowired
     ReservationDao reservationDao;
+
+    @Autowired
+    DisplayDao displayDao;
 
     @Override
     public void setReservationInfo(ReservationInfo reservationInfo, List<ReservationPrice> prices) {

@@ -1,3 +1,8 @@
+@font-face {
+    font-family: naver;
+    src: url("../../font/Naver-booking-Icons.woff") format("truetype");
+}
+
 body{
     background-color: #d4dadf;
     width: 100%;
@@ -13,13 +18,62 @@ body{
     word-break: break-word;
 }
 
+ul{
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
 
 .container{
     background-color: #e9ecef;
-    padding-top: 50px;
     width: 100%;
     max-width: 414px;
     text-align: center;
+}
+.header{
+    background-color: #2DC700;
+    height: 150px;
+}
+
+.logo{
+    padding-top: 20px;
+}
+
+.head_img{
+    float: left;
+    margin-left: 10px;
+    width: 100px;
+}
+
+.myInfo{
+    float: right;
+    margin-right: 13px;
+    font-size: 18px;
+    font-weight: lighter;
+    color: white;
+    font-family: naver;
+    text-decoration: none;
+}
+
+#tab_info{
+    margin-top: 30px;
+}
+
+.tab_item{
+    float: left;
+    font-family: naver;
+    color: white;
+    width: 100px;
+    text-align: center;
+}
+
+.tab_title{
+    font-size: 15px;
+}
+
+.tab_num {
+    font-size: 23px;
 }
 
 

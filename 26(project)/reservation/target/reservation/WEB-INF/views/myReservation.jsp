@@ -9,34 +9,36 @@
 <html>
 <head>
     <title>나의 예약 현황</title>
+    <link rel="stylesheet" href="../css/myReservation.css"/>
 </head>
 <body>
 <div class="container">
     <div class="header">
         <h2 class="logo">
             <a class="head_img" href="/main"><img class="head_img" src="../../img/spr_title.png"/> </a>
-            <span class="myInfo">${email}</span>
+            <span class="myInfo" id="email">${email}</span>
         </h2>
-    </div>
-    <div id="tab_info">
-        <ul class="tab">
-            <li class="tab_item">
-                <div class="tab_title">전체</div>
-                <div class="tab_num">0</div>
-            </li>
-            <li class="tab_item">
-                <div class="tab_title">이용예정</div>
-                <div class="tab_num">0</div>
-            </li>
-            <li class="tab_item">
-                <div class="tab_title">이용완료</div>
-                <div class="tab_num">0</div>
-            </li>
-            <li class="tab_item">
-                <div class="tab_title">취소 환불</div>
-                <div class="tab_num">0</div>
-            </li>
-        </ul>
+        <div style="clear: both"></div>
+        <div id="tab_info">
+            <ul class="tab">
+                <li class="tab_item">
+                    <div class="tab_title">전체</div>
+                    <div class="tab_num" id="tab_all">0</div>
+                </li>
+                <li class="tab_item">
+                    <div class="tab_title">이용예정</div>
+                    <div class="tab_num" id="tab_reservation">0</div>
+                </li>
+                <li class="tab_item">
+                    <div class="tab_title">이용완료</div>
+                    <div class="tab_num" id="tab_finish">0</div>
+                </li>
+                <li class="tab_item">
+                    <div class="tab_title">취소 환불</div>
+                    <div class="tab_num" id="tab_cancel">0</div>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <div class="reservation">
@@ -71,32 +73,39 @@
     </footer>
 </div>
 
-<script type="myTemplate">
-<li>
+<script type="myTemplate" id="itemTem">
+<li class="li_items">
     <div class="items_content">
         <div class="items_header">
-            <div class="items_number">No.<span class="item_number"></span></div>
-            <div class="item_description"></div>
+            <div class="items_number">No.<span class="item_number">{{id}}</span></div>
+            <div class="item_description">{{description}}</div>
         </div>
         <div class="items_content">
             <div class="items_period">
                 <span class="period_title">일정</span>
-                <span class="item_period"></span></div>
+                <span class="item_period">{{date}}</span></div>
             <div class="items_breakdown">
                 <span class="breakdown_title">내역</span>
-                <span class="item_breakdown"></span></div>
-            <div class="items_product">
-                <span class="product_title">상품</span>
-                <span class="item_product"></span></div>
+                <span class="item_breakdown">{{breakdown}}</span></div>
+            <div class="items_company">
+                <span class="company_title">장소</span>
+                <span class="item_company">{{placeLot}}</span></div>
             <div class="items_company">
                 <span class="company_title">업체</span>
-                <span class="item_company"></span></div>
+                <span class="item_company">{{placeName}}</span></div>
         </div>
         <div class="items_price">
             <div class="price_title">결제 예정금액</div>
-            <div class="item_price_div"><span class="item_price"></span> 원</div>
+            <div class="item_price_div"><span class="item_price">{{price}}</span> 원</div>
         </div>
-        <div><button id="list_btn">취소</button></div>
+        <div class="btn">
+            {{#ifCond cancelFlag 0}}
+                <button class="cancel_btn">취소</button>
+            {{/ifCond}}
+            {{#ifCond cancelFlag 2}}
+                <button class="finish_btn">예매자 리뷰 남기기</button>
+            {{/ifCond}}
+        </div>
     </div>
 </li>
 </script>
@@ -107,6 +116,6 @@
         crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js" integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg==" crossorigin="anonymous"></script>
-
+<script src="../js/myReservation.js" type="text/javascript"></script>
 </body>
 </html>

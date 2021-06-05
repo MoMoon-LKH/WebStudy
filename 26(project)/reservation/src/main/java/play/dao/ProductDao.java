@@ -41,9 +41,6 @@ public class ProductDao {
         }
     }
 
-
-
-
     public List<Integer> productCount() {
         return jdbc.queryForList(SELECT_COUNT, Collections.emptyMap(), Integer.class);
     }
@@ -51,5 +48,7 @@ public class ProductDao {
     public List<String> promotion(){
         return jdbc.queryForList(SELECT_PROMOTION, Collections.emptyMap(), String.class);
     }
+
+
 
 }
