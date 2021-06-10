@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UserComment {
     private int id;
+    private int reservation__id;
     private String reservation_email;
     private String reservation_date;
     private Double score;
@@ -16,6 +17,14 @@ public class UserComment {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getReservation__id() {
+        return reservation__id;
+    }
+
+    public void setReservation__id(int reservation__id) {
+        this.reservation__id = reservation__id;
     }
 
     public String getReservation_email() {
@@ -62,8 +71,9 @@ public class UserComment {
     public String toString() {
         return "UserComment{" +
                 "id=" + id +
+                ", reservation__id=" + reservation__id +
                 ", reservation_email='" + reservation_email + '\'' +
-                ", reservation_date=" + reservation_date +
+                ", reservation_date='" + reservation_date + '\'' +
                 ", score=" + score +
                 ", comment='" + comment + '\'' +
                 ", file_name='" + file_name + '\'' +

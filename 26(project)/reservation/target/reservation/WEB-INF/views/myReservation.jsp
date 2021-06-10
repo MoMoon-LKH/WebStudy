@@ -82,10 +82,13 @@
 
 <script type="myTemplate" id="itemTem">
 <li class="li_items">
+    <form method="post" action="/commentForm">
     <div class="items_content">
         <div class="items_header">
             <div class="items_number">No.<span class="item_number">{{id}}</span></div>
+            <input type="hidden" name="id" value="{{id}}">
             <div class="item_description">{{description}}</div>
+            <input type="hidden" name="description" value="{{description}}">
         </div>
         <div class="item">
             <div class="item_con">
@@ -115,10 +118,11 @@
                 <button class="cancel_btn" type="button" onclick="cancelBtn($(this))">취소</button>
             {{/ifCond}}
             {{#ifCond cancelFlag 2}}
-                <button class="finish_btn" type="button" onclick="commentBtn($(this))">예매자 리뷰 남기기</button>
+                <button class="finish_btn" type="submit">예매자 리뷰 남기기</button>
             {{/ifCond}}
         </div>
     </div>
+    </form>
 </li>
 </script>
 
