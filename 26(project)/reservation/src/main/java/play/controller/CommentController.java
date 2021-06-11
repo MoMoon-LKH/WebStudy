@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+
 @Controller
 public class CommentController {
 
@@ -25,6 +27,14 @@ public class CommentController {
                          @RequestParam(name = "score") double score,
                          @RequestParam(name = "comment") String comment,
                          @RequestParam(name = "file") MultipartFile file) {
+
+        try {
+            file.transferTo(new File("c:/MyProject/WebStudy/26(project)/reservation/src/main/webapp/img" + file.getOriginalFilename()));
+        } catch (Exception exception) {
+            throw new RuntimeException("file save error");
+        }
+
+
 
         return "redirect:/myReservation";
     }
