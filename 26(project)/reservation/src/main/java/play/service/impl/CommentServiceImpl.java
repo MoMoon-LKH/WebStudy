@@ -30,7 +30,9 @@ public class CommentServiceImpl implements CommentService {
 
         CommentEntity commentEntity = new CommentEntity(reservationId, score, comment, date.get(0), date.get(1));
         int commentId = commentDao.insertComment(commentEntity, productId);
-        int file_id = fileDao.insertFile(file, date.get(0), date.get(1));
-        commentDao.insertCommentImage(reservationId, commentId, file_id);
+        if (file != null) {
+            int file_id = fileDao.insertFile(file, date.get(0), date.get(1));
+            commentDao.insertCommentImage(reservationId, commentId, file_id);
+        }
     }
 }

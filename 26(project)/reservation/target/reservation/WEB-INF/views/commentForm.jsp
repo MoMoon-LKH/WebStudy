@@ -27,7 +27,7 @@
                 <div class="score">
 
                 </div>
-                <input type="hidden" name="score" >
+                <input type="hidden" id="score_input" name="score" >
             </div>
             <div class="comment_div">
                 <input type="text" id="comment" name="comment" placeholder="내용을 입력해주세요."
@@ -35,7 +35,7 @@
             </div>
             <div class="img_container">
                 <div>
-                    <input type="file" name="file" id="img" accept="image/png, image/jpg"/>
+                    <input type="file" name="file" id="imgInput" accept="image/png, image/jpg"/>
                     <div><span id="stringLength">0</span>/400 (최소 5자 이상)</div>
                 </div>
                 <div class="thumb_container">
@@ -50,5 +50,6 @@
 
 </div>
 
+<script src="../js/commentForm.js" type="text/javascript"></script>
 </body>
 </html>
