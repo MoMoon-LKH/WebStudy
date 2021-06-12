@@ -26,17 +26,17 @@ public class CommentController {
     public String upload(@RequestParam(name = "reservationId") int id,
                          @RequestParam(name = "score") double score,
                          @RequestParam(name = "comment") String comment,
-                         @RequestParam(name = "file") MultipartFile file) {
+                         @RequestParam(name = "file") MultipartFile file,
+                         ModelMap model) {
 
         try {
-            file.transferTo(new File("c:/MyProject/WebStudy/26(project)/reservation/src/main/webapp/img" + file.getOriginalFilename()));
+            file.transferTo(new File("c:/MyProject/WebStudy/26(project)/reservation/src/main/webapp/img/" + file.getOriginalFilename()));
         } catch (Exception exception) {
             throw new RuntimeException("file save error");
         }
 
 
-
-        return "redirect:/myReservation";
+        return "/myReservation";
     }
 
 }
