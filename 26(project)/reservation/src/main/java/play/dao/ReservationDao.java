@@ -141,4 +141,10 @@ public class ReservationDao {
         return jdbc.update(UPDATE_CANCEL_FLAG, params);
     }
 
+    public String getEmailFromId(int id) {
+        Map<String, Integer> params = new HashMap<>();
+        params.put("id", id);
+        return jdbc.queryForObject(SELECT_ID_EMAIL, params, String.class);
+    }
+
 }

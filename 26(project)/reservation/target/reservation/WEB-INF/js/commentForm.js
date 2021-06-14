@@ -16,6 +16,7 @@ $('.star_score .stars').click(function () {
     $('.star_num').text(score)
     $(this).parent().children('.stars').removeClass('on');
     $(this).addClass('on').prevAll('.stars').addClass('on');
+    $('#score_input').val(score);
     return false;
 });
 

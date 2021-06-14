@@ -17,7 +17,7 @@ public class ReservationSqls {
     public static final String SELECT_RESERVATION_USER =
             "select id, product_id, display_info_id, reservation_name, reservation_tel, " +
                     "reservation_email, reservation_date, cancel_flag, create_date, modify_date " +
-                    "from reservation_info where reservation_email = :email";
+                    "from reservation_info where reservation_email = :email order by id desc";
 
     public static final String SELECT_RESERVATION_PRICE =
             "select product_price.price_type_name, product_price.price, reservation_info_price.count " +
@@ -32,4 +32,8 @@ public class ReservationSqls {
 
     public static final String UPDATE_CANCEL_FLAG =
             "update reservation_info set cancel_flag = 1 where id = :id";
+
+    public static final String SELECT_ID_EMAIL =
+            "select reservation_email from reservation_info " +
+                    "where id = :id";
 }

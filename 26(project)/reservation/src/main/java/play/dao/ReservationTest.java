@@ -47,6 +47,8 @@ public class ReservationTest {
         int count = dao.updateCancelFlag(22);
         System.out.println("count = " + count);
 
+        String email = dao.getEmailFromId(20);
+        System.out.println("email = " + email);
 
     }
 }

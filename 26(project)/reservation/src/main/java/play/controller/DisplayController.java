@@ -36,6 +36,6 @@ public class DisplayController {
 
     @GetMapping("/main")
     public String getMain(){
-        return "products";
+        return "redirect:/logout";
     }
 }

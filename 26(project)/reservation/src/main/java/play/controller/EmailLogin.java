@@ -36,7 +36,7 @@ public class EmailLogin {
         String getEmail = reservationService.getEmail(email);
 
         if (getEmail != null) {
-            session.setAttribute("admin", "true");
+            session.setAttribute("admin", true);
         } else{
             redirectAttr.addFlashAttribute("errorMessage", "예약된 이메일이 아닙니다.");
             return "redirect:/loginForm";
@@ -55,6 +55,6 @@ public class EmailLogin {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.removeAttribute("admin");
-        return "redirect:/main";
+        return "products";
     }
 }

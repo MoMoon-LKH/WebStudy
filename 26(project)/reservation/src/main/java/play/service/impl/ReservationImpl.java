@@ -43,4 +43,9 @@ public class ReservationImpl implements ReservationService {
     public void updateCancelFlag(int reservationId) {
         reservationDao.updateCancelFlag(reservationId);
     }
+
+    @Override
+    public String getEmailFromId(int reservationId) {
+        return reservationDao.getEmailFromId(reservationId);
+    }
 }
