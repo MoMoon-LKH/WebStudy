@@ -14,5 +14,4 @@ public interface DisplayService {
     public String getMap(Integer displayId);
     public List<ItemPrice> getPrice(Integer displayId);
     public String getReservationDate();
-
 }

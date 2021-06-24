@@ -3,10 +3,7 @@ package play.service.impl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import play.config.ApplicationConfig;
-import play.dto.UserComment;
 import play.service.DisplayService;
-
-import java.util.List;
 
 public class DisplayTest {
     public static void main(String[] args) {
