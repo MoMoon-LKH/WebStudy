@@ -10,7 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 import play.service.CommentService;
 import play.service.ReservationService;
 
-import javax.servlet.http.HttpSession;
 import java.io.File;
 
 @Controller

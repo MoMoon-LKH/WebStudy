@@ -1,6 +1,5 @@
 package play.dao;
 
-import com.mysql.cj.result.Row;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import play.dto.*;
 
 import javax.sql.DataSource;
-import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.*;
 

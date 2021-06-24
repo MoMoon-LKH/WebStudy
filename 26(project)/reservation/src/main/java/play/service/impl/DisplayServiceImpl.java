@@ -8,13 +8,9 @@ import play.dto.Display;
 import play.dto.ItemPrice;
 import play.dto.UserComment;
 import play.service.DisplayService;
-
-import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 @Service
 public class DisplayServiceImpl implements DisplayService {
@@ -71,11 +67,11 @@ public class DisplayServiceImpl implements DisplayService {
     @Transactional
     public String getReservationDate() {
         int random = (int) (Math.random() * 5 + 1);
-        SimpleDateFormat nowFormat = new SimpleDateFormat("yyyy.MM.dd");
+        int hourRan = (int) (Math.random() * 24 + 1);
+        SimpleDateFormat nowFormat = new SimpleDateFormat("yyyy.MM.dd hh");
         Calendar cal = Calendar.getInstance();
-
         cal.add(Calendar.DATE, random);
-
+        cal.add(Calendar.HOUR, hourRan);
         String now = nowFormat.format(cal.getTime());
 
         return now;

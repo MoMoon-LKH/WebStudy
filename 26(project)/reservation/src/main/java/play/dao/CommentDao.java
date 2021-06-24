@@ -10,7 +10,6 @@ import org.springframework.stereotype.Repository;
 import play.dto.CommentEntity;
 
 import javax.sql.DataSource;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static play.dao.CommentSql.*;
@@ -29,9 +28,7 @@ public class CommentDao {
     }
 
     public int insertComment(CommentEntity comment ,int productId) {
-
         comment.setProductId(productId);
-
         SqlParameterSource params = new BeanPropertySqlParameterSource(comment);
 
         return insert.executeAndReturnKey(params).intValue();

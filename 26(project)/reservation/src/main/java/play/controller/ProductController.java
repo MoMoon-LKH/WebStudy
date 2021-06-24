@@ -7,8 +7,6 @@ import play.dto.Item;
 import play.dto.UserComment;
 import play.service.DisplayService;
 import play.service.ViewService;
-
-import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

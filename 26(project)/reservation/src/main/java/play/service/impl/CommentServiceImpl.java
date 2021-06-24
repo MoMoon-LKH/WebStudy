@@ -7,7 +7,6 @@ import play.dao.CommentDao;
 import play.dao.FileDao;
 import play.dao.ReservationDao;
 import play.dto.CommentEntity;
-import play.dto.FileEntity;
 import play.service.CommentService;
 
 import java.util.List;

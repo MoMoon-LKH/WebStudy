@@ -112,6 +112,18 @@ function getBreakdown(prices) {
             case "B":
                 breakdown += "유아 " + prices[i].count +"매";
                 break;
+            case "V":
+                breakdown += "VIP석 " + prices[i].count +"매";
+                break;
+            case "R":
+                breakdown += "R석 " + prices[i].count +"매";
+                break;
+            case "S":
+                breakdown += "S석 " + prices[i].count +"매";
+                break;
+            case "A":
+                breakdown += "A석 " + prices[i].count +"매";
+                break;
             default:
                 breakdown += prices[i].priceTypeName + " " + prices[i].count +"매";
                 break;

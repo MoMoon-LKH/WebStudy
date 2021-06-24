@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import play.dao.ProductDao;
 import play.dto.Item;
-import play.dto.ItemPrice;
 import play.service.ViewService;
 
 import java.util.List;

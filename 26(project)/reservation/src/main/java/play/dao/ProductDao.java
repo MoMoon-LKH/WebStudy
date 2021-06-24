@@ -6,8 +6,6 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import play.dto.Item;
-import play.dto.ItemPrice;
-
 import javax.sql.DataSource;
 import java.util.*;
 

@@ -3,15 +3,9 @@ package play.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.support.SessionStatus;
-import play.dto.ReservationInfo;
 import play.dto.ReservationPrice;
 import play.dto.ReservationUser;
 import play.service.ReservationService;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
